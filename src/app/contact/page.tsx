@@ -45,19 +45,19 @@ export default function Contact() {
       <section className="pt-40 lg:pt-56 pb-32 relative overflow-hidden">
         {/* Background Accents */}
         <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/2" />
-        
+
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
-            
+
             <div className="lg:col-span-5">
-              <motion.span 
+              <motion.span
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-xs font-bold uppercase tracking-[0.4em] text-accent font-display mb-8 block"
               >
                 Get in Touch
               </motion.span>
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
@@ -65,7 +65,7 @@ export default function Contact() {
               >
                 Let's Start a <br /> <span className="gradient-text">Conversation</span>.
               </motion.h1>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
@@ -74,7 +74,7 @@ export default function Contact() {
                 Have a vision you'd like to bring to life? We're ready when you are. Reach out and let's build something exceptional.
               </motion.p>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
@@ -89,7 +89,7 @@ export default function Contact() {
                     <p className="text-lg font-bold text-foreground group-hover:text-accent transition-colors">devtoontechnologies@gmail.com</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-6 group">
                   <div className="w-14 h-14 rounded-2xl glass flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500">
                     <MapPin size={24} />
@@ -102,7 +102,7 @@ export default function Contact() {
               </motion.div>
             </div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -113,9 +113,9 @@ export default function Contact() {
                 className="clay-lg p-10 md:p-16 rounded-[4rem] border-border/40 relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 p-12 opacity-[0.03] rotate-12">
-                   <MessageSquare size={200} />
+                  <MessageSquare size={200} />
                 </div>
-                
+
                 <div className="relative z-10 space-y-8">
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="space-y-4">
@@ -141,7 +141,7 @@ export default function Contact() {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="space-y-4">
                     <label className="text-[10px] font-black text-foreground/40 uppercase tracking-[0.2em] px-4">Message Details</label>
                     <textarea
@@ -161,10 +161,10 @@ export default function Contact() {
                     disabled={sending}
                     className="w-full flex items-center justify-center gap-3 px-10 py-6 rounded-full text-lg font-black text-white bg-accent shadow-2xl shadow-accent/20 disabled:opacity-70 transition-all uppercase tracking-widest text-[12px]"
                   >
-                    {sending ? "Transmitting..." : "Send Message"} 
+                    {sending ? "Transmitting..." : "Send Message"}
                     {!sending && <ArrowRight size={20} />}
                   </motion.button>
-                  
+
                   <p className="text-center text-[10px] font-bold text-foreground/30 uppercase tracking-widest mt-8">
                     We respond to all inquiries within 24 hours.
                   </p>

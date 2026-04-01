@@ -25,51 +25,50 @@ export default function Projects() {
   return (
     <main className="bg-background min-h-screen">
       {/* Header */}
-      <section className="pt-40 lg:pt-56 pb-20 relative overflow-hidden bg-background">
+      <section className="pt-40 lg:pt-56 pb-16 relative bg-background border-b border-border/40">
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
             <div className="max-w-2xl">
-              <motion.span 
+              <motion.span
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-xs font-bold uppercase tracking-[0.4em] text-accent font-display mb-6 block"
+                className="text-[10px] font-bold uppercase tracking-[0.4em] text-muted-foreground mb-6 block"
               >
-                Our Showcase
+                Case Archive
               </motion.span>
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-6xl md:text-8xl font-display font-bold text-foreground tracking-tighter leading-[0.9]"
+                className="text-6xl md:text-8xl font-bold text-foreground tracking-tight leading-[0.9]"
               >
-                Case <br /> <span className="gradient-text">Studies</span>
+                Selected <br /> Works
               </motion.h1>
-              <motion.p 
-                 initial={{ opacity: 0, y: 20 }}
-                 animate={{ opacity: 1, y: 0 }}
-                 transition={{ delay: 0.2 }}
-                 className="text-xl text-foreground/50 mt-10 font-medium leading-relaxed"
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-xl text-muted-foreground mt-10 font-medium leading-relaxed"
               >
                 A curated selection of our most challenging and impactful digital projects.
               </motion.p>
             </div>
-            
+
             {/* Filter Pill */}
-            <motion.div 
-               initial={{ opacity: 0, scale: 0.9 }}
-               animate={{ opacity: 1, scale: 1 }}
-               transition={{ delay: 0.3 }}
-               className="flex flex-wrap gap-2 glass p-2 rounded-full border-border/40"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap gap-2 p-1.5 rounded-full border border-border"
             >
               {filters.map((f) => (
                 <button
                   key={f}
                   onClick={() => setActive(f)}
-                  className={`px-8 py-3.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${
-                    active === f 
-                    ? "bg-accent text-white shadow-xl shadow-accent/20" 
-                    : "text-foreground/40 hover:text-foreground hover:bg-foreground/[0.03]"
-                  }`}
+                  className={`px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${active === f
+                      ? "bg-foreground text-background"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    }`}
                 >
                   {f}
                 </button>
@@ -80,9 +79,9 @@ export default function Projects() {
       </section>
 
       {/* Grid */}
-      <section className="pb-32 lg:pb-48">
+      <section className="py-20 lg:py-32">
         <div className="container-custom">
-          <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+          <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             <AnimatePresence mode='popLayout'>
               {filtered.map((project, i) => (
                 <motion.div
@@ -90,45 +89,47 @@ export default function Projects() {
                   layout
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.6, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
                 >
-                  <div className="clay flex flex-col h-full rounded-[3rem] p-1.5 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/5 group border-border/40 overflow-hidden">
-                    <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden bg-secondary">
+                  <div className="card-minimal flex flex-col h-full group overflow-hidden">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-muted border-b border-border">
                       {project.url ? (
                         <img
                           src={project.url}
                           alt={project.title}
-                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                          className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-accent/5 to-transparent">
-                          <span className="text-[10px] font-black text-accent/20 uppercase tracking-widest">Preview Unavailable</span>
+                        <div className="w-full h-full flex items-center justify-center bg-muted">
+                           <span className="text-5xl font-black text-foreground/5 uppercase tracking-tighter">{project.title[0]}</span>
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm pointer-events-none">
-                         <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-accent shadow-2xl scale-50 group-hover:scale-100 transition-transform">
-                            <ArrowUpRight size={24} />
-                         </div>
+                      
+                      <div className="absolute inset-0 bg-foreground/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px] pointer-events-none">
+                        <div className="w-12 h-12 bg-background border border-border rounded-full flex items-center justify-center text-foreground shadow-xl scale-50 group-hover:scale-100 transition-transform">
+                          <ArrowUpRight size={20} />
+                        </div>
                       </div>
+                      
                       {project.link && (
-                         <a 
-                           href={project.link} 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           className="absolute inset-0 z-10"
-                         />
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="absolute inset-0 z-10"
+                        />
                       )}
                     </div>
-                    
-                    <div className="p-10 flex flex-col flex-grow">
-                      <span className="text-[10px] font-black text-accent uppercase tracking-[0.2em] mb-4 block">{project.category}</span>
-                      <h3 className="text-3xl font-display font-bold text-foreground mb-4 tracking-tight leading-tight transition-colors group-hover:text-accent">{project.title}</h3>
-                      <p className="text-base text-foreground/50 mb-10 font-medium leading-relaxed">{project.description}</p>
-                      
-                      <div className="mt-auto flex flex-wrap gap-2">
+
+                    <div className="p-8 flex flex-col flex-grow">
+                      <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-4 block">{project.category}</span>
+                      <h3 className="text-2xl font-bold text-foreground mb-4 tracking-tight leading-tight transition-colors group-hover:text-foreground/80">{project.title}</h3>
+                      <p className="text-sm text-muted-foreground mb-8 font-medium leading-relaxed line-clamp-2">{project.description}</p>
+
+                      <div className="mt-auto flex flex-wrap gap-1.5">
                         {project.tech.map((t) => (
-                          <span key={t} className="text-[9px] font-bold text-foreground/30 uppercase tracking-widest bg-foreground/[0.03] px-3 py-1.5 rounded-full border border-border/20 transition-colors group-hover:border-accent/20">
+                          <span key={t} className="text-[8px] font-bold text-muted-foreground uppercase tracking-widest bg-muted px-2.5 py-1.5 rounded transition-colors group-hover:bg-foreground group-hover:text-background">
                             {t}
                           </span>
                         ))}

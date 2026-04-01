@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,89 +7,87 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 221 39% 11%; /* Deeper navy-black */
+    --foreground: 0 0% 17%; /* #2B2B2B */
 
     --card: 0 0% 100%;
-    --card-foreground: 221 39% 11%;
+    --card-foreground: 0 0% 17%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 221 39% 11%;
+    --popover-foreground: 0 0% 17%;
 
-    --primary: 221 39% 11%;
+    --primary: 0 0% 17%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 83%; /* #D4D4D4 */
+    --secondary-foreground: 0 0% 17%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 221 100% 55%; /* Electric Blue */
+    --accent: 0 0% 17%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221 100% 55%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 17%;
 
-    --radius: 2rem;
+    --radius: 0.75rem;
 
-    --glass-bg: hsl(0 0% 100% / 0.7);
-    --glass-border: hsl(221 39% 11% / 0.05);
-    
-    --clay-shadow: 12px 12px 25px hsl(221 39% 11% / 0.05), -8px -8px 20px hsl(0 0% 100% / 0.8);
-    --clay-shadow-sm: 6px 6px 12px hsl(221 39% 11% / 0.04), -4px -4px 10px hsl(0 0% 100% / 0.7);
-    --clay-shadow-lg: 20px 20px 40px hsl(221 39% 11% / 0.06), -12px -12px 30px hsl(0 0% 100% / 0.9);
+    /* Subtle Claymorphism */
+    --clay-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05), -4px -4px 10px rgba(255, 255, 255, 0.8);
+    --clay-shadow-sm: 2px 2px 5px rgba(0, 0, 0, 0.03), -2px -2px 5px rgba(255, 255, 255, 0.7);
+    --clay-shadow-lg: 10px 10px 20px rgba(0, 0, 0, 0.08), -10px -10px 20px rgba(255, 255, 255, 0.9);
+    --clay-inset: inset 2px 2px 5px rgba(0, 0, 0, 0.05), inset -2px -2px 5px rgba(255, 255, 255, 0.8);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 17%;
+    --foreground: 0 0% 100%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 17%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 17%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 17%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 30%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 25%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 221 100% 55%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 17%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 221 100% 55%;
-
-    --glass-bg: hsl(221 39% 11% / 0.7);
-    --glass-border: hsl(0 0% 100% / 0.1);
-
-    --clay-shadow: 12px 12px 30px hsl(0 0% 0% / 0.3), -8px -8px 20px hsl(0 0% 100% / 0.03);
+    --clay-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3), -4px -4px 10px rgba(255, 255, 255, 0.02);
   }
 }
 
 @layer base {
   * {
-    @apply border-border selection:bg-accent/30;
+    @apply border-border selection:bg-foreground/10;
   }
+
   body {
-    @apply bg-background text-foreground/90 font-body antialiased;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
   }
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold tracking-tighter text-foreground;
+    @apply font-bold tracking-tight text-foreground;
+    font-family: 'Inter', sans-serif;
   }
+
   html {
     scroll-behavior: smooth;
   }
@@ -97,39 +95,42 @@
 
 @layer components {
   .section-padding {
-    @apply py-24 md:py-32 lg:py-48;
+    @apply py-20 md:py-24 lg:py-32;
   }
 
   .container-custom {
-    @apply max-w-7xl mx-auto px-6 md:px-10 lg:px-12;
+    @apply max-w-6xl mx-auto px-6 md:px-8 lg:px-10;
   }
 
-  .glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid var(--glass-border);
-  }
-
-  .clay {
-    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
-    box-shadow: var(--clay-shadow);
-    border: 1px solid var(--glass-border);
-  }
-
-  .clay-sm {
-    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+  .card-minimal {
+    @apply bg-card border border-border rounded-[--radius] transition-all duration-200;
     box-shadow: var(--clay-shadow-sm);
-    border: 1px solid var(--glass-border);
   }
 
-  .clay-lg {
-    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
-    box-shadow: var(--clay-shadow-lg);
-    border: 1px solid var(--glass-border);
+  .card-minimal:hover {
+    box-shadow: var(--clay-shadow);
+    transform: translateY(-2px);
   }
 
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent/70;
+  .clay-subtle {
+    @apply rounded-[--radius];
+    box-shadow: var(--clay-shadow);
+  }
+
+  .clay-inset {
+    @apply rounded-[--radius];
+    box-shadow: var(--clay-inset);
+  }
+
+  .btn-minimal {
+    @apply px-6 py-2.5 rounded-full font-semibold transition-all duration-200 active:scale-95;
+  }
+
+  .btn-primary {
+    @apply btn-minimal bg-foreground text-background hover:opacity-90;
+  }
+
+  .btn-secondary {
+    @apply btn-minimal bg-secondary text-foreground hover:bg-secondary/80;
   }
 }
