@@ -74,10 +74,10 @@ export default function About() {
       </section>
 
       {/* Expertise */}
-      <section className="section-padding bg-secondary/20">
+      <section className="section-padding bg-muted/10">
         <div className="container-custom">
           <div className="text-center mb-24">
-            <span className="text-xs font-bold uppercase tracking-[0.4em] text-accent font-display">Toolkit</span>
+            <span className="text-xs font-bold uppercase tracking-[0.4em] text-foreground/40 font-display">Toolkit</span>
             <h2 className="text-5xl md:text-6xl font-display font-bold mt-6 text-foreground tracking-tighter">
               Technology <span className="gradient-text">Stack</span>
             </h2>
@@ -90,9 +90,9 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass p-10 rounded-[2.5rem] border-border/40 hover:bg-white transition-colors duration-500 group"
+                className="bg-card p-10 rounded-[2.5rem] border border-border/40 hover:border-foreground/20 transition-all duration-500 group"
               >
-                <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-6 text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500">
+                <div className="w-12 h-12 bg-foreground/5 rounded-2xl flex items-center justify-center mb-6 text-foreground group-hover:bg-foreground group-hover:text-background transition-all duration-500">
                   <skill.icon size={24} strokeWidth={2} />
                 </div>
                 <h4 className="text-xl font-display font-bold text-foreground mb-4 leading-tight tracking-tight">{skill.label}</h4>
@@ -102,6 +102,51 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* Leadership Section */}
+      {/* <section className="section-padding bg-background border-b border-border/40">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+             <div>
+                <span className="text-xs font-bold uppercase tracking-[0.4em] text-foreground/40 font-display">Leadership</span>
+                <h2 className="text-4xl md:text-5xl font-display font-bold mt-6 text-foreground tracking-tighter mb-8">
+                   Driven by <span className="gradient-text">Visionaries</span>.
+                </h2>
+                <div className="space-y-8">
+                   <div>
+                      <h3 className="text-2xl font-bold text-foreground">Muhammad shibili</h3>
+                      <p className="text-xs font-bold text-foreground/40 uppercase tracking-widest mt-1">Founder & CEO</p>
+                      <p className="text-lg text-foreground/60 mt-6 leading-relaxed italic">
+                        "At Devtoon, we bridge the gap between technical complexity and business growth. Our goal is to build products that don't just work, but excel in their respective markets."
+                      </p>
+                   </div>
+                   <div className="flex gap-4">
+                      <Link href="/contact" className="text-[10px] font-bold uppercase tracking-[0.2em] border border-border px-6 py-3 rounded-full hover:bg-foreground hover:text-background transition-all">
+                         Connect on LinkedIn
+                      </Link>
+                   </div>
+                </div>
+             </div>
+             
+             <motion.div
+               initial={{ opacity: 0, scale: 0.95 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               className="relative aspect-[4/5] bg-muted rounded-[3rem] overflow-hidden"
+             >
+         
+                <div className="absolute inset-0 flex items-center justify-center text-foreground/10 font-black text-6xl uppercase tracking-tighter rotate-12">
+                   Portrait
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                <div className="absolute bottom-10 left-10">
+                   <p className="text-3xl font-display font-bold text-foreground">Arun R.</p>
+                   <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mt-1">Founder</p>
+                </div>
+             </motion.div>
+          </div>
+        </div>
+      </section> */}
 
       {/* Vision */}
       <section className="section-padding bg-background relative overflow-hidden">
@@ -116,11 +161,8 @@ export default function About() {
                 Architecting <br /> <span className="gradient-text">The Digital Future</span>.
               </h2>
               <p className="text-xl md:text-2xl text-foreground/50 mt-14 font-medium leading-relaxed italic">
-                "We believe that every brand deserves a digital home that is as high-performing as it is visually arresting. Our mission is to bridge that gap between complexity and clarity."
+                "We believe that every brand deserves a digital home that is as high-performing as it is visually arresting."
               </p>
-              <div className="mt-16 flex justify-center">
-                <div className="w-20 h-1 bg-accent/20 rounded-full" />
-              </div>
             </motion.div>
           </div>
         </div>

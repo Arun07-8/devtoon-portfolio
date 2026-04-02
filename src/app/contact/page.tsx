@@ -99,6 +99,16 @@ export default function Contact() {
                     <p className="text-lg font-bold text-foreground">Mumbai, India · Remote Worldwide</p>
                   </div>
                 </div>
+
+                <div className="flex items-center gap-6 group">
+                  <div className="w-14 h-14 rounded-2xl glass flex items-center justify-center text-green-500 group-hover:bg-green-500 group-hover:text-white transition-all duration-500">
+                    <MessageSquare size={24} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black text-foreground/30 uppercase tracking-[0.2em] mb-1">WhatsApp</p>
+                    <p className="text-lg font-bold text-foreground">+91 9324683056</p>
+                  </div>
+                </div>
               </motion.div>
             </div>
 

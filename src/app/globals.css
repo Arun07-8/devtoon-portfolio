@@ -133,4 +133,20 @@
   .btn-secondary {
     @apply btn-minimal bg-secondary text-foreground hover:bg-secondary/80;
   }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground/80 to-foreground/60;
+  }
+
+  .text-accent {
+    @apply text-foreground; /* Or define a specific accent color if needed, but here foreground is the main accent */
+  }
+
+  .bg-accent {
+    @apply bg-foreground;
+  }
+
+  .text-primary-foreground {
+    @apply text-background;
+  }
 }
