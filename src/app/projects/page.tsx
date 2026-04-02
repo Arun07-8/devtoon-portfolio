@@ -2,18 +2,58 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Code2, Cpu, Globe, Boxes } from "lucide-react";
+import Link from "next/link";
 
 const allProjects = [
-  { title: "Analytics Dashboard", category: "Web", description: "Real-time analytics with interactive charts and team collaboration features.", tech: ["Next-js", "TypeScript", "tailwind", "firebase"], url: "/Screenshot 2026-03-24 120137.png", link: "https://analytics-dashboard-five-zeta.vercel.app/dashboard" },
-  { title: "3D Product Configurator", category: "3D", description: "Interactive product viewer with real-time customization and AR preview.", tech: ["Three.js", "WebGL", "React", "GLTF"], url: "/image.png", link: "https://tile-app-kappa.vercel.app/visualization?room=living_room" },
-  { title: "Fleet Management System", category: "SaaS", description: "End-to-end fleet tracking, automated reporting, and driver management.", tech: ["Next.js", "PostgreSQL", "Maps API"] },
-  { title: "E-Commerce Platform", category: "Web", description: "High-conversion online store with advanced filtering and payment integration.", tech: ["React", "Stripe", "Tailwind CSS"] },
-  { title: "Architectural Visualizer", category: "3D", description: "Photorealistic 3D walkthroughs for real estate and architecture firms.", tech: ["Three.js", "React Three Fiber", "Blender"] },
-  { title: "Inventory Management Tool", category: "SaaS", description: "Smart inventory tracking with barcode scanning and automated alerts.", tech: ["React", "Node.js", "MongoDB"] },
-  { title: "Interactive Portfolio", category: "Web", description: "Award-winning creative portfolio with smooth animations and transitions.", tech: ["Framer Motion", "React", "GSAP"] },
-  { title: "VR Showroom", category: "3D", description: "Virtual reality product showcase accessible from any web browser.", tech: ["WebXR", "Three.js", "A-Frame"] },
-  { title: "HR Management Dashboard", category: "SaaS", description: "Complete HR platform with employee onboarding, leave management, and analytics.", tech: ["React", "Supabase", "Charts"] },
+  { 
+    title: "EcoSmart IoT Network", 
+    category: "SaaS", 
+    description: "A centralized dashboard for industrial energy monitoring, featuring real-time telemetry and AI-driven cost forecasting.", 
+    tech: ["Next.js", "Three.js", "PostgreSQL"],
+    icon: Globe,
+    outcome: "-30% Operational Costs"
+  },
+  { 
+    title: "Nova Retail Engine", 
+    category: "Web", 
+    description: "A headless commerce backend designed for extreme holiday traffic spikes and instantaneous order processing.", 
+    tech: ["Node.js", "Redis", "AWS"],
+    icon: Cpu,
+    outcome: "Zero Downtime Peak"
+  },
+  { 
+    title: "Aura AI Health", 
+    category: "Web", 
+    description: "An AI-powered wellness assistant that integrates with wearable biometrics for personalized health guidance.", 
+    tech: ["React Native", "Python", "Firebase"],
+    icon: Code2,
+    outcome: "+78% User Engagement"
+  },
+  { 
+    title: "3D Product Configurator", 
+    category: "3D", 
+    description: "Interactive product viewer with real-time customization and AR preview for automotive retail.", 
+    tech: ["Three.js", "WebGL", "React"],
+    icon: Boxes,
+    outcome: "+45% Store Conversion"
+  },
+  { 
+    title: "Fleet Management", 
+    category: "SaaS", 
+    description: "End-to-end fleet tracking and automated reporting for logistics enterprise.", 
+    tech: ["Next.js", "Supabase", "Maps"],
+    icon: Globe,
+    outcome: "Real-time Precision"
+  },
+  { 
+    title: "VR Showroom", 
+    category: "3D", 
+    description: "Virtual reality product showcase accessible from any web browser for luxury brands.", 
+    tech: ["WebXR", "Three.js", "Blender"],
+    icon: Boxes,
+    outcome: "Immersive Commerce"
+  },
 ];
 
 const filters = ["All", "Web", "3D", "SaaS"];
@@ -23,35 +63,28 @@ export default function Projects() {
   const filtered = active === "All" ? allProjects : allProjects.filter((p) => p.category === active);
 
   return (
-    <main className="bg-background min-h-screen">
+    <main className="min-h-screen pt-[112px]">
       {/* Header */}
-      <section className="pt-40 lg:pt-56 pb-16 relative bg-background border-b border-border/40">
+      <section className="section-padding pb-16 relative border-b border-border/10">
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
-            <div className="max-w-2xl">
+            <div className="max-w-3xl">
               <motion.span
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-[10px] font-bold uppercase tracking-[0.4em] text-muted-foreground mb-6 block"
+                className="text-[10px] font-black uppercase tracking-[0.4em] text-primary mb-6 block"
               >
-                Case Archive
+                Case Archive // 01
               </motion.span>
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-6xl md:text-8xl font-bold text-foreground tracking-tight leading-[0.9]"
+                transition={{ duration: 0.8, ease: "circOut" }}
+                className="text-6xl md:text-8xl lg:text-9xl font-black text-foreground tracking-tighter leading-[0.8] uppercase"
               >
-                Selected <br /> Works
+                PROVED <br /> 
+                <span className="text-muted-foreground">MASTERY.</span>
               </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-xl text-muted-foreground mt-10 font-medium leading-relaxed"
-              >
-                A curated selection of our most challenging and impactful digital projects.
-              </motion.p>
             </div>
 
             {/* Filter Pill */}
@@ -59,15 +92,15 @@ export default function Projects() {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 }}
-              className="flex flex-wrap gap-2 p-1.5 rounded-full border border-border"
+              className="flex flex-wrap gap-3 p-2 rounded-3xl bg-secondary/30 border border-border/20 backdrop-blur-md"
             >
               {filters.map((f) => (
                 <button
                   key={f}
                   onClick={() => setActive(f)}
-                  className={`px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${active === f
-                      ? "bg-foreground text-background"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  className={`px-8 py-3 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 ${active === f
+                    ? "bg-foreground text-background shadow-lg"
+                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
                     }`}
                 >
                   {f}
@@ -79,9 +112,9 @@ export default function Projects() {
       </section>
 
       {/* Grid */}
-      <section className="py-20 lg:py-32">
+      <section className="py-24 md:py-32">
         <div className="container-custom">
-          <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <motion.div layout className="grid md:grid-cols-2 gap-10">
             <AnimatePresence mode='popLayout'>
               {filtered.map((project, i) => (
                 <motion.div
@@ -89,58 +122,66 @@ export default function Projects() {
                   layout
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.6, ease: "circOut" }}
+                  className="clay-industrial p-12 flex flex-col h-full group"
                 >
-                  <div className="card-minimal flex flex-col h-full group overflow-hidden">
-                    <div className="relative aspect-[4/3] overflow-hidden bg-muted border-b border-border">
-                      {project.url ? (
-                        <img
-                          src={project.url}
-                          alt={project.title}
-                          className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-muted">
-                           <span className="text-5xl font-black text-foreground/5 uppercase tracking-tighter">{project.title[0]}</span>
-                        </div>
-                      )}
-                      
-                      <div className="absolute inset-0 bg-foreground/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px] pointer-events-none">
-                        <div className="w-12 h-12 bg-background border border-border rounded-full flex items-center justify-center text-foreground shadow-xl scale-50 group-hover:scale-100 transition-transform">
-                          <ArrowUpRight size={20} />
-                        </div>
+                   <div className="flex items-start justify-between mb-12">
+                      <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:text-white">
+                         <project.icon size={28} />
                       </div>
-                      
-                      {project.link && (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="absolute inset-0 z-10"
-                        />
-                      )}
-                    </div>
-
-                    <div className="p-8 flex flex-col flex-grow">
-                      <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-4 block">{project.category}</span>
-                      <h3 className="text-2xl font-bold text-foreground mb-4 tracking-tight leading-tight transition-colors group-hover:text-foreground/80">{project.title}</h3>
-                      <p className="text-sm text-muted-foreground mb-8 font-medium leading-relaxed line-clamp-2">{project.description}</p>
-
-                      <div className="mt-auto flex flex-wrap gap-1.5">
-                        {project.tech.map((t) => (
-                          <span key={t} className="text-[8px] font-bold text-muted-foreground uppercase tracking-widest bg-muted px-2.5 py-1.5 rounded transition-colors group-hover:bg-foreground group-hover:text-background">
-                            {t}
-                          </span>
-                        ))}
+                      <div className="text-right">
+                         <p className="text-[9px] font-black text-muted-foreground tracking-widest uppercase mb-1">Impact // Result</p>
+                         <p className="font-black text-foreground text-lg uppercase">{project.outcome}</p>
                       </div>
-                    </div>
-                  </div>
+                   </div>
+
+                   <span className="text-[10px] font-black text-primary tracking-[0.3em] mb-4 block uppercase leading-none">{project.category}</span>
+                   <h3 className="text-4xl font-black mb-8 uppercase leading-tight group-hover:text-primary transition-colors">{project.title}</h3>
+                   <p className="text-muted-foreground font-medium leading-relaxed mb-12 text-lg italic">
+                      "{project.description}"
+                   </p>
+
+                   <div className="mt-auto pt-8 border-t border-border/10 flex flex-wrap gap-3">
+                      {project.tech.map((t) => (
+                        <span key={t} className="px-4 py-2 bg-secondary/50 rounded-full text-[9px] font-black tracking-widest uppercase border border-border/10 group-hover:border-primary/20 transition-colors">
+                           {t}
+                        </span>
+                      ))}
+                      <Link href="/contact" className="ml-auto w-12 h-12 rounded-full border border-border flex items-center justify-center transition-all hover:bg-primary hover:text-white hover:border-primary">
+                         <ArrowUpRight size={20} />
+                      </Link>
+                   </div>
                 </motion.div>
               ))}
             </AnimatePresence>
           </motion.div>
         </div>
+      </section>
+
+      {/* Engineering Philosophy CTA */}
+      <section className="section-padding pt-0">
+         <div className="container-custom">
+            <div className="clay-industrial p-16 md:p-24 bg-foreground text-background relative overflow-hidden">
+               <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+                  <div>
+                    <h2 className="text-4xl md:text-6xl font-black uppercase leading-none mb-8">Ready to be the <span className="text-primary">Best</span>?</h2>
+                    <p className="text-white/60 text-xl font-medium leading-relaxed italic">
+                       "We don't build features. We build technical leverage."
+                    </p>
+                  </div>
+                  <div className="flex justify-start lg:justify-end">
+                    <Link href="/contact" className="btn-clay btn-clay-primary px-16 py-8">
+                       START A PROJECT
+                    </Link>
+                  </div>
+               </div>
+               
+               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40rem] font-black text-white/5 select-none pointer-events-none uppercase">
+                  BUILD
+               </div>
+            </div>
+         </div>
       </section>
     </main>
   );

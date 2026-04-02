@@ -1,46 +1,49 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Code, Palette, Lightbulb, Target, ArrowRight } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+import { Code, Palette, Lightbulb, Target, ArrowRight, Shield, Cpu, Globe, Boxes } from "lucide-react";
 import Link from "next/link";
 
-const skills = [
-  { icon: Code, label: "React / Next.js / TypeScript", desc: "Building scalable, high-performance web applications." },
-  { icon: Palette, label: "Three.js / WebGL / 3D Design", desc: "Crafting immersive, interactive digital experiences." },
-  { icon: Lightbulb, label: "UI/UX Design & Prototyping", desc: "User-centric design that converts and captivates." },
-  { icon: Target, label: "Business Automation & SaaS", desc: "Intelligence-driven tools to scale operations." },
+const toolkit = [
+  { icon: Code, label: "Core Engineering", desc: "React, Next.js, and TypeScript architectures built for high-stakes performance." },
+  { icon: Boxes, label: "Spatial Tech", desc: "Three.js and WebGL implementations for immersive, high-fidelity 3D experiences." },
+  { icon: Palette, label: "Logic Design", desc: "Outcome-driven UI/UX research focused on conversion and user psychology." },
+  { icon: Cpu, label: "Neural Systems", desc: "Integrating custom LLMs and automated data pipelines into business workflows." },
 ];
+
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "circOut" } },
+};
 
 export default function About() {
   return (
-    <main className="bg-background min-h-screen">
-      {/* Hero Section */}
-      <section className="pt-40 lg:pt-56 pb-20 lg:pb-32 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px]" />
-
+    <main className="min-h-screen pt-[112px]">
+      {/* Narrative Hero */}
+      <section className="section-padding pb-32 relative border-b border-border/10">
         <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid lg:grid-cols-2 gap-24 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              initial="hidden"
+              animate="show"
+              variants={fadeInUp}
             >
-              <span className="text-xs font-bold uppercase tracking-[0.4em] text-accent font-display mb-8 block">Our Narrative</span>
-              <h1 className="text-5xl md:text-7xl font-display font-bold text-foreground leading-[1] tracking-tighter">
-                Engineering <br /> <span className="gradient-text">Premium Digital</span> Solutions.
+              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary mb-8 block">Our Narrative // Core</span>
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-foreground leading-[0.8] tracking-tighter uppercase mb-12">
+                BUILT ON <br /> <span className="text-muted-foreground">PRECISION.</span>
               </h1>
-              <div className="space-y-6 mt-12 text-foreground/50 text-xl font-medium leading-relaxed max-w-xl">
+              <div className="space-y-8 text-muted-foreground text-xl font-medium leading-relaxed max-w-xl italic">
                 <p>
-                  Devtoon Solutions was founded on a simple principle: digital products should be as powerful as they are beautiful.
+                  Devtoon Technologies was founded on a singular technical mandate: digital products should be as powerful as they are beautiful.
                 </p>
                 <p>
-                  What started as a focused freelance mission has evolved into a boutique agency specialized in quality over quantity. We don't just build websites; we engineer experiences.
+                  We are a boutique engineering agency specialized in high-performance digital environments. We don't just build software; we engineer competitive advantage.
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-bold text-primary-foreground transition-all hover:scale-105 active:scale-95 bg-accent mt-8"
+                  className="btn-clay btn-clay-primary mt-12 inline-flex"
                 >
-                  Work with us <ArrowRight size={18} />
+                  START THE ENGINE <ArrowRight size={18} className="ml-3" />
                 </Link>
               </div>
             </motion.div>
@@ -48,22 +51,21 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative"
+              transition={{ duration: 1, delay: 0.2, ease: "circOut" }}
             >
-              <div className="clay-lg rounded-[4rem] p-12 md:p-16 border-border/40 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-accent/5 to-transparent pointer-events-none" />
-                <div className="w-24 h-24 bg-accent rounded-full flex items-center justify-center mb-10 shadow-2xl shadow-accent/20">
-                  <span className="text-4xl font-display font-black text-white">D</span>
+              <div className="clay-industrial p-16 md:p-24 border-primary/10 relative overflow-hidden bg-foreground text-background">
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/10 to-transparent pointer-events-none" />
+                <div className="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mb-12 shadow-2xl">
+                  <span className="text-3xl font-black text-white">D</span>
                 </div>
-                <h3 className="font-display font-bold text-3xl text-foreground tracking-tight">Devtoon Solutions</h3>
-                <p className="text-foreground/40 font-bold uppercase text-[10px] tracking-widest mt-3">Est. 2022 · Global Agency</p>
+                <h3 className="text-4xl font-black text-white tracking-tighter uppercase mb-2">Devtoon</h3>
+                <p className="text-white/40 font-black uppercase text-[10px] tracking-[0.3em]">Est. 2022 · Global Agency</p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
-                  {[["50+", "Projects"], ["30+", "Clients"], ["99%", "Success"]].map(([num, label]) => (
-                    <div key={label} className="glass rounded-[2rem] p-6 text-center border-border/60">
-                      <p className="font-display font-black text-3xl text-foreground tracking-tighter mb-1">{num}</p>
-                      <p className="text-[9px] font-black text-accent uppercase tracking-widest">{label}</p>
+                <div className="grid grid-cols-2 gap-8 mt-16">
+                  {[["50+", "Projects"], ["98%", "Retention"]].map(([num, label]) => (
+                    <div key={label} className="border-t border-white/10 pt-6">
+                      <p className="font-black text-4xl text-white tracking-tighter mb-1 uppercase">{num}</p>
+                      <p className="text-[9px] font-black text-primary uppercase tracking-widest">{label}</p>
                     </div>
                   ))}
                 </div>
@@ -73,97 +75,62 @@ export default function About() {
         </div>
       </section>
 
-      {/* Expertise */}
-      <section className="section-padding bg-muted/10">
+      {/* Toolkit / Expertise */}
+      <section className="section-padding bg-white/5">
         <div className="container-custom">
-          <div className="text-center mb-24">
-            <span className="text-xs font-bold uppercase tracking-[0.4em] text-foreground/40 font-display">Toolkit</span>
-            <h2 className="text-5xl md:text-6xl font-display font-bold mt-6 text-foreground tracking-tighter">
-              Technology <span className="gradient-text">Stack</span>
+          <div className="mb-24">
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary mb-6 block">The Stack // 02</span>
+            <h2 className="text-5xl md:text-7xl font-black text-foreground tracking-tighter uppercase leading-none">
+              Technical <span className="text-muted-foreground">Mastery.</span>
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {skills.map((skill, i) => (
+            {toolkit.map((skill, i) => (
               <motion.div
                 key={skill.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-card p-10 rounded-[2.5rem] border border-border/40 hover:border-foreground/20 transition-all duration-500 group"
+                className="clay-industrial p-12 hover:border-primary/20 group"
               >
-                <div className="w-12 h-12 bg-foreground/5 rounded-2xl flex items-center justify-center mb-6 text-foreground group-hover:bg-foreground group-hover:text-background transition-all duration-500">
-                  <skill.icon size={24} strokeWidth={2} />
+                <div className="w-16 h-16 bg-secondary flex items-center justify-center rounded-2xl mb-10 transition-all duration-500 group-hover:bg-primary group-hover:text-white group-hover:rotate-6">
+                  <skill.icon size={28} strokeWidth={1.5} />
                 </div>
-                <h4 className="text-xl font-display font-bold text-foreground mb-4 leading-tight tracking-tight">{skill.label}</h4>
-                <p className="text-foreground/50 font-medium leading-relaxed text-sm">{skill.desc}</p>
+                <h4 className="text-2xl font-black text-foreground mb-6 leading-tight tracking-tight uppercase">{skill.label}</h4>
+                <p className="text-muted-foreground font-medium leading-relaxed italic text-lg line-clamp-3">"{skill.desc}"</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Leadership Section */}
-      {/* <section className="section-padding bg-background border-b border-border/40">
+      {/* Vision Statement */}
+      <section className="section-padding relative overflow-hidden bg-foreground text-background">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-             <div>
-                <span className="text-xs font-bold uppercase tracking-[0.4em] text-foreground/40 font-display">Leadership</span>
-                <h2 className="text-4xl md:text-5xl font-display font-bold mt-6 text-foreground tracking-tighter mb-8">
-                   Driven by <span className="gradient-text">Visionaries</span>.
-                </h2>
-                <div className="space-y-8">
-                   <div>
-                      <h3 className="text-2xl font-bold text-foreground">Muhammad shibili</h3>
-                      <p className="text-xs font-bold text-foreground/40 uppercase tracking-widest mt-1">Founder & CEO</p>
-                      <p className="text-lg text-foreground/60 mt-6 leading-relaxed italic">
-                        "At Devtoon, we bridge the gap between technical complexity and business growth. Our goal is to build products that don't just work, but excel in their respective markets."
-                      </p>
-                   </div>
-                   <div className="flex gap-4">
-                      <Link href="/contact" className="text-[10px] font-bold uppercase tracking-[0.2em] border border-border px-6 py-3 rounded-full hover:bg-foreground hover:text-background transition-all">
-                         Connect on LinkedIn
-                      </Link>
-                   </div>
-                </div>
-             </div>
-             
-             <motion.div
-               initial={{ opacity: 0, scale: 0.95 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               viewport={{ once: true }}
-               className="relative aspect-[4/5] bg-muted rounded-[3rem] overflow-hidden"
-             >
-         
-                <div className="absolute inset-0 flex items-center justify-center text-foreground/10 font-black text-6xl uppercase tracking-tighter rotate-12">
-                   Portrait
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                <div className="absolute bottom-10 left-10">
-                   <p className="text-3xl font-display font-bold text-foreground">Arun R.</p>
-                   <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mt-1">Founder</p>
-                </div>
-             </motion.div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Vision */}
-      <section className="section-padding bg-background relative overflow-hidden">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl md:text-8xl font-display font-bold text-foreground tracking-tighter leading-[0.9]">
-                Architecting <br /> <span className="gradient-text">The Digital Future</span>.
+              <h2 className="text-6xl md:text-9xl font-black tracking-tighter leading-[0.8] uppercase mb-16">
+                ARCHITECTING <br /> <span className="text-primary">THE FUTURE.</span>
               </h2>
-              <p className="text-xl md:text-2xl text-foreground/50 mt-14 font-medium leading-relaxed italic">
-                "We believe that every brand deserves a digital home that is as high-performing as it is visually arresting."
+              <p className="text-2xl md:text-3xl text-white/60 font-medium leading-relaxed italic max-w-3xl mx-auto">
+                "We believe every enterprise deserves a digital footprint that is as high-performing as its physical leadership."
               </p>
+              
+              <div className="mt-24 flex justify-center">
+                 <Link href="/contact" className="btn-clay bg-background text-foreground px-20 py-10">
+                    LET'S TALK BUSINESS
+                 </Link>
+              </div>
             </motion.div>
+          </div>
+          
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[50rem] font-black text-white/5 select-none pointer-events-none uppercase">
+             DT
           </div>
         </div>
       </section>

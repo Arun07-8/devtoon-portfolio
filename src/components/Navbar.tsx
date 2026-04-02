@@ -11,26 +11,13 @@ const links = [
   { href: "/services", label: "Services" },
   { href: "/projects", label: "Work" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/tech-tips", label: "Tips" },
 ];
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeHash, setActiveHash] = useState("");
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleHashChange = () => setActiveHash(window.location.hash);
-    window.addEventListener("hashchange", handleHashChange);
-    window.addEventListener("scroll", () => {
-      if (window.scrollY < 100) setActiveHash("");
-    });
-    setActiveHash(window.location.hash);
-    return () => {
-      window.removeEventListener("hashchange", handleHashChange);
-    };
-  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -46,54 +33,66 @@ export const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled
-            ? "bg-background/80 border-b border-border py-3 backdrop-blur-lg shadow-sm"
-            : "py-6 bg-transparent"
-          }`}
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
+          scrolled
+            ? "glass-frosted py-4 shadow-2xl"
+            : "py-8 bg-transparent"
+        }`}
       >
         <div className="container-custom flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group relative z-10 transition-transform active:scale-95">
-            <div className="w-8 h-8 bg-foreground rounded flex items-center justify-center transition-transform group-hover:rotate-6">
-              <span className="font-bold text-background text-sm tracking-tighter">D</span>
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group relative z-10">
+            <div className="relative">
+               <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+               <div className="w-10 h-10 bg-foreground rounded-xl flex items-center justify-center transition-all duration-500 group-hover:rotate-[10deg] shadow-lg relative z-10 border border-white/10">
+                  <span className="font-black text-background text-lg tracking-tighter">D</span>
+               </div>
             </div>
-            <span className="font-bold text-foreground text-xl tracking-tighter uppercase">
+            <span className="font-black text-foreground text-xl tracking-[0.15em] uppercase hidden sm:block">
               Devtoon
             </span>
           </Link>
 
-          {/* Desktop Nav - Centered */}
-          <div className="hidden lg:flex items-center gap-1 bg-muted/30 rounded-full px-1.5 py-1.5 border border-border/40">
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-1 bg-white/5 backdrop-blur-md rounded-full px-2 py-2 border border-white/10">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${(pathname === link.href || (link.href.startsWith("/#") && pathname === "/" && activeHash === link.href.replace("/", "")))
-                    ? "text-background bg-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                  }`}
-                onClick={() => {
-                  if (link.href.startsWith("/#")) setActiveHash(link.href.replace("/", ""));
-                }}
+                className="relative group px-6 py-2"
               >
-                {link.label}
+                 <motion.span 
+                   whileHover={{ y: -2 }}
+                   className={`nav-link block relative z-10 ${pathname === link.href ? 'text-primary' : ''}`}
+                 >
+                   {link.label}
+                 </motion.span>
+                 {pathname === link.href && (
+                    <motion.div 
+                      layoutId="nav-active"
+                      className="absolute inset-0 bg-primary/5 rounded-full border border-primary/20"
+                    />
+                 )}
+                 <div className="absolute inset-0 bg-foreground/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 -z-10" />
               </Link>
             ))}
-          </div>
+          </nav>
 
+          {/* Action */}
           <div className="flex items-center gap-4 relative z-10">
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center gap-2 bg-foreground text-background px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all hover:opacity-90 active:scale-95 group"
+              className="hidden md:inline-flex btn-clay btn-clay-primary items-center gap-2 group"
             >
-              Start Project
+              LET'S TALK
               <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full border border-border bg-background transition-transform active:scale-90"
+              className="lg:hidden w-12 h-12 flex items-center justify-center rounded-xl glass-frosted transition-transform active:scale-90"
             >
-              {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
@@ -102,41 +101,40 @@ export const Navbar = () => {
         <AnimatePresence>
           {mobileOpen && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.98, y: -10 }}
+              initial={{ opacity: 0, scale: 0.95, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.98, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden absolute top-[calc(100%+8px)] left-4 right-4 p-4 rounded-2xl bg-card border border-border shadow-xl overflow-hidden"
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              transition={{ duration: 0.4, ease: "circOut" }}
+              className="lg:hidden absolute top-[calc(100%+12px)] left-6 right-6 p-6 rounded-[2rem] glass-frosted border border-white/10 shadow-2xl overflow-hidden"
             >
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-2">
                 {links.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-6 py-4 rounded-xl text-xs font-bold uppercase tracking-widest transition-all ${(pathname === link.href || (link.href.startsWith("/#") && pathname === "/" && activeHash === link.href.replace("/", "")))
-                        ? "bg-foreground text-background"
-                        : "text-muted-foreground hover:bg-muted/50"
-                      }`}
-                    onClick={() => {
-                      if (link.href.startsWith("/#")) setActiveHash(link.href.replace("/", ""));
-                    }}
+                    className={`px-8 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.3em] transition-all ${
+                      pathname === link.href
+                        ? "bg-primary text-white"
+                        : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
+                    }`}
                   >
                     {link.label}
                   </Link>
                 ))}
-                <div className="h-px bg-border my-2" />
+                <div className="h-px bg-white/10 my-4" />
                 <Link
                   href="/contact"
-                  className="bg-foreground text-background px-6 py-4 rounded-xl text-xs font-bold uppercase tracking-widest text-center"
+                  className="btn-clay btn-clay-primary py-6 text-center"
                 >
-                  Start Project
+                  LET'S TALK
                 </Link>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </motion.nav>
-      {/* Background overlay for mobile menu */}
+
+      {/* Background overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -144,7 +142,7 @@ export const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setMobileOpen(false)}
-            className="fixed inset-0 z-[90] bg-foreground/5 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-[90] bg-background/40 backdrop-blur-sm lg:hidden h-screen"
           />
         )}
       </AnimatePresence>
