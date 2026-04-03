@@ -38,14 +38,14 @@ const services = [
     title: "Scalable Web Architecture",
     description: "High-performance enterprise engines and complex SaaS ecosystems designed for infinite scale.",
     outcome: "Zero-latency performance at any scale.",
-    color: "from-blue-500/20 to-cyan-500/20"
+    color: "from-primary/20 to-emerald-500/20"
   },
   {
     icon: Palette,
     title: "Precision UI/Engineering",
     description: "Deep psychological interface design and pixel-perfect technical implementation.",
     outcome: "98% user satisfaction rating.",
-    color: "from-purple-500/20 to-blue-500/20"
+    color: "from-green-500/20 to-primary/20"
   },
   {
     icon: Cpu,

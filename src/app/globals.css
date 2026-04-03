@@ -15,26 +15,26 @@
     --popover: 0 0% 95%;
     --popover-foreground: 0 0% 7%;
 
-    --primary: 221.2 83.2% 53.3%; /* Electric Blue */
+    --primary: 105.9 17% 39.2%; /* Sage Green #5B7553 */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 85%;
+    --secondary: 0 0% 90%;
     --secondary-foreground: 0 0% 7%;
 
-    --muted: 0 0% 90%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 221.2 83.2% 53.3%;
+    --accent: 105.9 17% 39.2%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
-    --ring: 221.2 83.2% 53.3%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 105.9 17% 39.2%;
 
-    --radius: 2rem; /* 32px */
+    --radius: 2.5rem; /* 40px for more claymorphism feel */
   }
 
   .dark {
@@ -47,7 +47,7 @@
     --popover: 0 0% 7%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 221.2 83.2% 53.3%;
+    --primary: 105.9 17% 45%; /* Slightly brighter for dark mode visibility */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 15%;
@@ -58,7 +58,7 @@
 
     --border: 0 0% 18%;
     --input: 0 0% 18%;
-    --ring: 221.2 83.2% 53.3%;
+    --ring: 105.9 17% 45%;
   }
 }
 
