@@ -6,65 +6,72 @@
 
 @layer base {
   :root {
-    --background: 0 0% 95%; /* Soft Clay White #F2F2F2 */
-    --foreground: 0 0% 7%; /* #121212 */
+    --background: 0 0% 100%;
+    /* #FFFFFF */
+    --foreground: 0 0% 17%;
+    /* #2B2B2B */
 
-    --card: 0 0% 95%;
-    --card-foreground: 0 0% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 17%;
 
-    --popover: 0 0% 95%;
-    --popover-foreground: 0 0% 7%;
+    --primary: 214 100% 50%;
+    --primary-foreground: 210 40% 98%;
 
-    --primary: 105.9 17% 39.2%; /* Sage Green #5B7553 */
-    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 83%;
+    /* #D4D4D4 */
+    --secondary-foreground: 0 0% 17%;
 
-    --secondary: 0 0% 90%;
-    --secondary-foreground: 0 0% 7%;
+    --muted: 0 0% 83%;
+    /* #D4D4D4 */
+    --muted-foreground: 0 0% 70%;
+    /* #B3B3B3 */
 
-    --muted: 0 0% 92%;
-    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 70%;
+    /* #B3B3B3 */
+    --accent-foreground: 0 0% 17%;
 
-    --accent: 105.9 17% 39.2%;
-    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 83%;
+    /* #D4D4D4 */
+    --input: 0 0% 83%;
+    --ring: 0 0% 17%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 85%;
-    --input: 0 0% 85%;
-    --ring: 105.9 17% 39.2%;
-
-    --radius: 2.5rem; /* 40px for more claymorphism feel */
+    --radius: 1.5rem;
+    --navbar-bg: 0 0% 0%;
+    /* #000000 */
   }
 
   .dark {
-    --background: 0 0% 7%; /* Deep Charcoal #121212 */
-    --foreground: 0 0% 98%;
+    --background: 222 47% 3%;
+    /* #02040A - Deep Navy/Black */
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 221 44% 8%;
+    /* #0A1221 */
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 98%;
+    --primary: 214 100% 50%;
+    --primary-foreground: 210 40% 98%;
 
-    --primary: 105.9 17% 45%; /* Slightly brighter for dark mode visibility */
-    --primary-foreground: 0 0% 100%;
+    --secondary: 217 19% 15%;
+    --secondary-foreground: 210 40% 98%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --muted: 217 19% 15%;
+    --muted-foreground: 215 16% 65%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --accent: 188 86% 43%;
+    --accent-foreground: 222 47% 11%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 105.9 17% 45%;
+    --border: 217 19% 27% / 0.2;
+    --input: 217 19% 27% / 0.2;
+    --ring: 221 83% 53%;
+    --navbar-bg: transparent;
+    /* Seamless in dark mode */
   }
 }
 
 @layer base {
   * {
-    @apply border-border selection:bg-primary/20;
+    @apply border-border selection:bg-primary/30;
     box-sizing: border-box;
   }
 
@@ -74,10 +81,15 @@
     line-height: 1.6;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-black tracking-tight text-foreground uppercase;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-black tracking-tighter text-foreground uppercase;
     font-family: 'Montserrat', sans-serif;
-    line-height: 1.1;
+    line-height: 0.9;
   }
 
   html {
@@ -88,79 +100,83 @@
 
 @layer components {
   .section-padding {
-    @apply py-16 sm:py-24 md:py-32 lg:py-40;
+    @apply py-24 sm:py-32 md:py-40 lg:py-48;
   }
 
   .container-custom {
-    @apply w-full max-w-[1240px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16;
-  }
-
-  .clay-industrial {
-    @apply bg-background border border-border/10 rounded-[--radius] transition-all duration-500 relative overflow-hidden;
-    box-shadow: 
-      inset -8px -8px 12px rgba(255,255,255,0.1), 
-      inset 8px 8px 12px rgba(0,0,0,0.05),
-      10px 10px 20px rgba(0,0,0,0.1);
-  }
-
-  .dark .clay-industrial {
-     box-shadow: 
-      inset -4px -4px 8px rgba(255,255,255,0.05), 
-      inset 4px 4px 8px rgba(0,0,0,0.3),
-      10px 10px 20px rgba(0,0,0,0.4);
-  }
-
-  .clay-industrial:hover {
-    @apply -translate-y-2;
-    box-shadow: 
-      inset -4px -4px 6px rgba(255,255,255,0.1), 
-      inset 4px 4px 6px rgba(0,0,0,0.1),
-      20px 20px 40px rgba(0,0,0,0.25);
+    @apply w-full max-w-[1440px] mx-auto px-6 sm:px-10 md:px-16 lg:px-24;
   }
 
   .glass-frosted {
-    @apply backdrop-blur-[16px] border border-white/10;
-    background: rgba(255, 255, 255, 0.03);
+    @apply backdrop-blur-[16px] border border-border bg-card/50;
+  }
+
+  .clay-industrial {
+    @apply bg-card border border-white/5 shadow-2xl transition-all duration-700 relative overflow-hidden backdrop-blur-md rounded-[--radius];
+  }
+
+  .clay-industrial:hover {
+    @apply -translate-y-3 border-primary/20 shadow-blue-500/10;
   }
 
   .btn-clay {
-    @apply inline-flex items-center justify-center px-8 md:px-10 py-4 md:py-5 rounded-full font-black text-[10px] md:text-xs uppercase tracking-[0.2em] transition-all duration-500 active:scale-95 select-none;
-    box-shadow: 
-      inset -4px -4px 8px rgba(255,255,255,0.1), 
-      inset 4px 4px 8px rgba(0,0,0,0.1),
-      8px 8px 16px rgba(0,0,0,0.1);
+    @apply inline-flex items-center justify-center px-10 py-5 rounded-full font-black text-xs uppercase tracking-[0.3em] transition-all duration-500 active:scale-95 select-none;
+    box-shadow: 0 10px 40px -10px rgba(0, 119, 255, 0.4);
   }
 
   .btn-clay-primary {
-    @apply bg-primary text-primary-foreground hover:brightness-110;
+    @apply bg-gradient-to-r from-[#0077FF] to-[#06B6D4] text-white hover:brightness-110;
   }
 
   .btn-clay-secondary {
-     @apply bg-background text-foreground hover:bg-secondary;
+    @apply bg-foreground/5 text-foreground backdrop-blur-md border border-border hover:bg-foreground/10;
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/90 to-primary;
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-white/90 to-primary;
   }
 
   .nav-link {
-    @apply text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground hover:text-foreground transition-all duration-500;
+    @apply text-[11px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-white transition-all duration-500;
   }
 
   .magnetic-pill {
-     @apply px-6 py-2.5 rounded-full bg-secondary/30 border border-border/20 transition-all duration-500 hover:bg-secondary/50;
+    @apply px-6 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md transition-all duration-500 hover:bg-white/10;
   }
 }
 
-/* Utilities for perfect responsiveness */
 @layer utilities {
   .text-fluid-h1 {
-    font-size: clamp(3rem, 10vw, 8rem);
+    font-size: clamp(3.5rem, 12vw, 9rem);
+    font-weight: 900;
   }
+
   .text-fluid-h2 {
-    font-size: clamp(2rem, 8vw, 6rem);
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 900;
   }
+
   .text-fluid-body {
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+    font-weight: 500;
   }
+}
+
+/* Specific Glow Effects */
+.radial-glow {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(0, 119, 255, 0.08) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 25px -5px rgb(var(--primary) / 0.4);
+}
+
+.shadow-glow-blue {
+  box-shadow: 0 0 50px -10px rgb(var(--primary) / 0.15);
 }

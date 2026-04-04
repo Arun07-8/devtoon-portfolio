@@ -7,7 +7,7 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const links = [
-  { href: "/", label: "Home" },
+  { href: "/home", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/projects", label: "Work" },
   { href: "/about", label: "About" },
@@ -26,9 +26,9 @@ export const Navbar = () => {
 
   useEffect(() => {
     if (mobileOpen) {
-       document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
     } else {
-       document.body.style.overflow = "unset";
+      document.body.style.overflow = "unset";
     }
   }, [mobileOpen]);
 
@@ -37,21 +37,21 @@ export const Navbar = () => {
   }, [pathname]);
 
   const menuVariants: Variants = {
-    closed: { 
-      x: "100%", 
-      transition: { 
-        type: "spring", 
-        stiffness: 400, 
-        damping: 40 
-      } 
+    closed: {
+      x: "100%",
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 40
+      }
     },
-    open: { 
-      x: 0, 
-      transition: { 
-        type: "spring", 
-        stiffness: 400, 
-        damping: 40 
-      } 
+    open: {
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 40
+      }
     }
   };
 
@@ -61,54 +61,58 @@ export const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-          scrolled ? "glass-frosted py-4 shadow-xl" : "py-8 bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-700 ${
+          scrolled 
+            ? "glass-frosted py-4 shadow-2xl border-b border-white/5" 
+            : "py-8 bg-transparent"
         }`}
       >
         <div className="container-custom flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group relative z-[110]">
-            <div className="relative">
-               <div className="absolute inset-0 bg-primary/30 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-               <div className="w-10 h-10 bg-foreground dark:bg-white rounded-xl flex items-center justify-center transition-all duration-500 group-hover:rotate-[10deg] shadow-lg relative z-10 border border-white/10">
-                  <span className="font-black text-background dark:text-black text-lg tracking-tighter">D</span>
-               </div>
-            </div>
-            <span className="font-black text-foreground text-xl tracking-[0.15em] uppercase hidden sm:block">
-              Devtoon
-            </span>
+          {/* Brand/Logo */}
+          <Link href="/home" className="group flex items-center gap-4 relative z-[110]">
+              <div className="relative w-14 h-14">
+                <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <img 
+                  src="/logo/Bold_Sans-Serif_Logo_with_Minimalist_Icon__2_-removebg-preview.png" 
+                  alt="Devtoon Logo" 
+                  className="w-full h-full object-contain relative z-10 transition-all duration-500 group-hover:scale-110"
+                />
+              </div>
+              <span className="font-black text-white text-xl tracking-[0.2em] uppercase hidden sm:block">
+                Devtoon
+              </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1 bg-white/5 backdrop-blur-xl rounded-full px-2 py-2 border border-white/10 shadow-inner">
+          {/* Nav List */}
+          <nav className="hidden lg:flex items-center gap-2 bg-white/[0.03] backdrop-blur-3xl rounded-full px-2 py-2 border border-white/5 shadow-2xl">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="relative group px-4 py-2"
+                className="relative group px-6 py-3"
               >
-                 <motion.span 
-                   whileHover={{ y: -1 }}
-                   className={`nav-link block relative z-10 ${pathname === link.href ? 'text-primary' : ''}`}
-                 >
-                   {link.label}
-                 </motion.span>
-                 {pathname === link.href && (
-                    <motion.div 
-                      layoutId="nav-active"
-                      className="absolute inset-0 bg-primary/10 rounded-full border border-primary/20"
-                    />
-                 )}
-                 <div className="absolute inset-0 bg-foreground/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 -z-10" />
+                <motion.span
+                  whileHover={{ y: -1 }}
+                  className={`nav-link block relative z-10 ${pathname === link.href ? 'text-white' : 'text-white/60 hover:text-white'}`}
+                >
+                  {link.label}
+                </motion.span>
+                {pathname === link.href && (
+                  <motion.div
+                    layoutId="nav-active"
+                    className="absolute inset-0 bg-white/5 rounded-full border border-white/10"
+                  />
+                )}
+                <div className="absolute inset-0 bg-white/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 -z-10" />
               </Link>
             ))}
           </nav>
 
-          {/* Action */}
-          <div className="flex items-center gap-4 relative z-[110]">
+          {/* Primary CTA & Menu */}
+          <div className="flex items-center gap-6 relative z-[110]">
             <Link
               href="/contact"
-              className="hidden md:inline-flex btn-clay btn-clay-primary items-center gap-2 group"
+              className="hidden md:inline-flex btn-clay-primary px-10 py-4 rounded-full font-black text-[11px] uppercase tracking-[0.3em] group shadow-glow shadow-primary/20"
             >
               LET'S TALK
               <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -116,7 +120,7 @@ export const Navbar = () => {
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`lg:hidden w-12 h-12 flex items-center justify-center rounded-xl glass-frosted transition-all active:scale-90 ${mobileOpen ? 'bg-primary text-white border-primary' : ''}`}
+              className={`lg:hidden w-12 h-12 flex items-center justify-center rounded-2xl glass-frosted transition-all duration-300 active:scale-90 ${mobileOpen ? 'bg-primary text-white border-primary shadow-blue-500/20' : 'text-white border-white/10'}`}
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -124,7 +128,7 @@ export const Navbar = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Sidebar */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -133,14 +137,14 @@ export const Navbar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMobileOpen(false)}
-              className="fixed inset-0 z-[120] bg-background/80 backdrop-blur-md lg:hidden"
+              className="fixed inset-0 z-[120] bg-black/60 backdrop-blur-2xl lg:hidden"
             />
             <motion.div
               variants={menuVariants}
               initial="closed"
               animate="open"
               exit="closed"
-              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm z-[130] glass-frosted bg-background/95 lg:hidden flex flex-col p-8 pt-32"
+              className="fixed top-0 right-0 bottom-0 w-[90%] max-w-sm z-[130] border-l lg:hidden flex flex-col p-10 pt-32 bg-[#02040A] border-white/5 shadow-2xl"
             >
               <div className="flex flex-col gap-4">
                 {links.map((link, i) => (
@@ -152,36 +156,35 @@ export const Navbar = () => {
                   >
                     <Link
                       href={link.href}
-                      className={`block px-8 py-6 rounded-2xl text-[10px] font-black uppercase tracking-[0.4em] transition-all border border-transparent ${
-                        pathname === link.href
-                          ? "bg-primary text-white shadow-xl shadow-primary/20 border-primary/20"
-                          : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
-                      }`}
+                      className={`block px-8 py-6 rounded-[--radius] text-[10px] font-black uppercase tracking-[0.4em] transition-all border border-transparent ${pathname === link.href
+                          ? "bg-white/5 text-white shadow-2xl border-white/10"
+                          : "text-white/40 hover:bg-white/5 hover:text-white"
+                        }`}
                     >
                       {link.label}
                     </Link>
                   </motion.div>
                 ))}
-                
-                <motion.div 
-                   initial={{ opacity: 0, y: 20 }}
-                   animate={{ opacity: 1, y: 0 }}
-                   transition={{ delay: 0.5 }}
-                   className="mt-8 pt-8 border-t border-white/10"
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="mt-8 pt-8 border-t border-white/5"
                 >
                   <Link
                     href="/contact"
-                    className="btn-clay btn-clay-primary w-full py-8 text-xs"
+                    className="btn-clay-primary w-full py-8 text-xs font-black uppercase tracking-[0.4em] rounded-[--radius] shadow-2xl h-24 flex items-center justify-center"
                   >
-                    START A PROJECT
+                    INITIALIZE PROJECT
                   </Link>
                 </motion.div>
               </div>
 
               <div className="mt-auto">
-                 <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest text-center">
-                   Devtoon Technologies // 01
-                 </p>
+                <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.4em] text-center">
+                  Precision Engineering // Devtoon
+                </p>
               </div>
             </motion.div>
           </>

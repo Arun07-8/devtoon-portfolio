@@ -53,11 +53,11 @@ export default function ServicesPage() {
           >
             <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-primary mb-8 block">Services // Capabilities</span>
             <h1 className="text-fluid-h1 font-black text-foreground leading-[0.8] tracking-tighter mb-12 uppercase">
-               TECHNICAL <br /> 
-               <span className="text-muted-foreground">LEVERAGE.</span>
+              TECHNICAL <br />
+              <span className="text-muted-foreground">LEVERAGE.</span>
             </h1>
             <p className="text-fluid-body text-muted-foreground font-medium leading-relaxed max-w-2xl italic">
-               We provide the engineering horsepower needed to dominate your sector. Outcome-focused, precision-driven systems.
+              We provide the engineering horsepower needed to dominate your sector. Outcome-focused, precision-driven systems.
             </p>
           </motion.div>
         </div>
@@ -77,10 +77,10 @@ export default function ServicesPage() {
               >
                 <div className="w-full lg:w-1/2">
                   <div className="flex items-center gap-6 mb-12">
-                     <span className="text-5xl md:text-6xl font-black text-primary/20 leading-none">{service.id}</span>
-                     <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-foreground text-background flex items-center justify-center shadow-2xl">
-                        <service.icon size={28} />
-                     </div>
+                    <span className="text-5xl md:text-6xl font-black text-primary/20 leading-none">{service.id}</span>
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-foreground text-background flex items-center justify-center shadow-2xl">
+                      <service.icon size={28} />
+                    </div>
                   </div>
                   <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground mb-8 tracking-tight uppercase leading-tight">{service.title}</h2>
                   <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-12 italic font-medium">
@@ -118,31 +118,31 @@ export default function ServicesPage() {
 
       {/* CTA Layer */}
       <section className="section-padding pt-0 w-full overflow-hidden">
-         <div className="container-custom">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="clay-industrial p-12 md:p-24 lg:p-32 bg-foreground text-background text-center relative overflow-hidden w-full"
-            >
-               <div className="relative z-10 flex flex-col items-center">
-                  <h2 className="text-fluid-h2 font-black uppercase leading-[0.85] tracking-tighter mb-12">
-                     NEED A <br /> 
-                     <span className="text-primary">ROADMAP?</span>
-                  </h2>
-                  <p className="text-fluid-body text-white/60 max-w-xl mb-16 font-medium italic">
-                     We offer deep-dive technical audits and strategy sessions to align your architecture with your vision.
-                  </p>
-                  <Link href="/contact" className="btn-clay bg-background text-foreground w-full sm:w-auto px-16 py-8 border-white/10 text-sm">
-                     START STRATEGY SESSION
-                  </Link>
-               </div>
-               
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[45rem] font-black text-white/5 select-none pointer-events-none uppercase leading-none">
-                  PLAN
-               </div>
-            </motion.div>
-         </div>
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="clay-industrial p-12 md:p-24 lg:p-32 bg-foreground text-background text-center relative overflow-hidden w-full"
+          >
+            <div className="relative z-10 flex flex-col items-center">
+              <h2 className="text-fluid-h2 font-black uppercase leading-[0.85] tracking-tighter mb-12">
+                NEED A <br />
+                <span className="text-primary">ROADMAP?</span>
+              </h2>
+              <p className="text-fluid-body text-white/60 max-w-xl mb-16 font-medium italic">
+                We offer deep-dive technical audits and strategy sessions to align your architecture with your vision.
+              </p>
+              <Link href="/contact" className="btn-clay bg-background text-foreground w-full sm:w-auto px-16 py-8 border-white/10 text-sm">
+                START STRATEGY SESSION
+              </Link>
+            </div>
+
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[45rem] font-black text-white/5 select-none pointer-events-none uppercase leading-none">
+              PLAN
+            </div>
+          </motion.div>
+        </div>
       </section>
     </main>
   );
