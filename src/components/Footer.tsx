@@ -1,76 +1,102 @@
 "use client";
 
 import Link from "next/link";
+import { Mail, Globe, Code as Github, Share2 as Linkedin, Send as Twitter } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
-export const Footer = () => (
-  <footer className="py-24 md:py-32 border-t border-border/10 bg-foreground text-background">
-    <div className="container-custom">
-      <div className="grid md:grid-cols-12 gap-16 lg:gap-24">
-        <div className="md:col-span-5">
-          <Link href="/" className="text-3xl font-black tracking-tighter text-white uppercase leading-none">
-            DEVTOON<span className="text-primary">.</span>
-          </Link>
-          <p className="text-white/40 mt-10 text-lg font-medium leading-relaxed max-w-sm italic">
-            "We engineer digital leverage for the world's most ambitious visionaries."
-          </p>
-          <div className="mt-12 flex gap-4">
-             <Link href="/contact" className="btn-clay bg-background text-foreground px-8 py-4 text-[10px]">
-                START A PROJECT
-             </Link>
+export const Footer = () => {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  return (
+    <footer
+      className={`pt-32 pb-16 border-t transition-all duration-700 ${theme === 'light' ? 'bg-[#FFFFFF] text-[#000000] border-black/5' : 'bg-[#02040A] text-white border-white/5'
+        }`}
+    >
+      <div className="container-custom">
+        <div className="grid md:grid-cols-12 gap-20 lg:gap-32">
+          {/* Brand/Summary */}
+          <div className="md:col-span-12 lg:col-span-5">
+            <Link href="/home" className="group flex items-center gap-4 mb-12">
+              <div className="relative w-16 h-16">
+                <img
+                  src="/logo/Bold_Sans-Serif_Logo_with_Minimalist_Icon__2_-removebg-preview.png"
+                  alt="Devtoon Logo"
+                  className={`w-full h-full object-contain transition-all duration-500 group-hover:scale-110 ${theme === 'light' ? 'invert-0' : 'invert-0' /* Logo seems to be dark by default if it's the one in Navbar */}`}
+                />
+              </div>
+              <span className="text-4xl font-black tracking-tighter uppercase italic">
+                DEVTOON<span className="text-primary font-black italic">.</span>
+              </span>
+            </Link>
+            <p className={`mt-12 text-xl font-medium leading-relaxed max-w-sm italic opacity-60 ${theme === 'light' ? 'text-black' : 'text-white'}`}>
+              "Engineered for clarity, built for performance. We transform complex visions into technical leverage."
+            </p>
+            <div className="mt-12 flex gap-4">
+              <Link href="/contact" className={`btn-clay rounded-2xl px-10 py-6 text-[10px] shadow-xl font-black uppercase tracking-[0.4em] italic ${theme === 'light' ? 'bg-black text-white' : 'btn-clay-primary'
+                }`}>
+                INITIATE PROJECT
+              </Link>
+            </div>
+          </div>
+
+          {/* Links Column 1 */}
+          <div className="md:col-span-4 lg:col-span-2">
+            <h5 className="font-black text-primary mb-10 uppercase text-[10px] tracking-[0.4em] font-mono">Expertise</h5>
+            <ul className={`space-y-6 text-xs font-black uppercase tracking-[0.3em] italic ${theme === 'light' ? 'text-black/60' : 'text-white/40'}`}>
+              <li><Link href="/services" className="hover:text-primary transition-all">Web Systems</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-all">3D Ecosystems</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-all">Logic Engines</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-all">AI Layers</Link></li>
+            </ul>
+          </div>
+
+          {/* Links Column 2 */}
+          <div className="md:col-span-4 lg:col-span-2">
+            <h5 className="font-black text-primary mb-10 uppercase text-[10px] tracking-[0.4em] font-mono">Narrative</h5>
+            <ul className={`space-y-6 text-xs font-black uppercase tracking-[0.3em] italic ${theme === 'light' ? 'text-black/60' : 'text-white/40'}`}>
+              <li><Link href="/about" className="hover:text-primary transition-all">Our Process</Link></li>
+              <li><Link href="/projects" className="hover:text-primary transition-all">The Archive</Link></li>
+              <li><Link href="/contact" className="hover:text-primary transition-all">Collaborate</Link></li>
+            </ul>
+          </div>
+
+          {/* Direct Channel */}
+          <div className="md:col-span-4 lg:col-span-3">
+            <h5 className="font-black text-primary mb-10 uppercase text-[10px] tracking-[0.4em] font-mono">Direct Signal</h5>
+            <ul className={`space-y-8 text-xs font-black uppercase tracking-[0.3em] italic ${theme === 'light' ? 'text-black/60' : 'text-white/40'}`}>
+              <li>
+                <p className="text-[9px] mb-2 opacity-40 font-mono">Technical HQ</p>
+                <p className="hover:text-primary transition-all break-all">devtoontechnologies@gmail.com</p>
+              </li>
+              <li>
+                <p className="text-[9px] mb-2 opacity-40 font-mono">Global Operations</p>
+                <p>Kalikavu Malappuram, Kerala</p>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="md:col-span-2">
-          <h5 className="font-black text-primary mb-8 uppercase text-[10px] tracking-[0.3em]">Expertise</h5>
-          <ul className="space-y-4 text-xs font-black text-white/60 uppercase tracking-widest">
-            <li><Link href="/services" className="hover:text-primary transition-colors">Web Systems</Link></li>
-            <li><Link href="/services" className="hover:text-primary transition-colors">3D Experience</Link></li>
-            <li><Link href="/services" className="hover:text-primary transition-colors">Logic Engines</Link></li>
-            <li><Link href="/services" className="hover:text-primary transition-colors">Strategy</Link></li>
-          </ul>
-        </div>
+        {/* Credits & Socials */}
+        <div className={`border-t mt-24 pt-12 flex flex-col md:flex-row justify-between items-center gap-12 ${theme === 'light' ? 'border-black/5' : 'border-white/5'}`}>
+          <p className={`text-[9px] font-black uppercase tracking-[0.5em] text-center opacity-30 ${theme === 'light' ? 'text-black' : 'text-white'}`}>© 2024 Devtoon Technologies. Engineered for Absolute Impact.</p>
 
-        <div className="md:col-span-2">
-          <h5 className="font-black text-primary mb-8 uppercase text-[10px] tracking-[0.3em]">Agency</h5>
-          <ul className="space-y-4 text-xs font-black text-white/60 uppercase tracking-widest">
-            <li><Link href="/about" className="hover:text-primary transition-colors">Narrative</Link></li>
-            <li><Link href="/projects" className="hover:text-primary transition-colors">Archive</Link></li>
-            <li><Link href="/contact" className="hover:text-primary transition-colors">Mobilize</Link></li>
-          </ul>
-        </div>
-
-        <div className="md:col-span-3">
-          <h5 className="font-black text-primary mb-8 uppercase text-[10px] tracking-[0.3em]">Security // OPS</h5>
-          <ul className="space-y-6 text-xs font-black text-white/60 uppercase tracking-widest">
-            <li>
-               <p className="text-[9px] text-white/30 mb-1">General Inquiries</p>
-               <p className="text-white hover:text-primary transition-colors break-all">devtoontechnologies@gmail.com</p>
-            </li>
-            <li>
-               <p className="text-[9px] text-white/30 mb-1">Global Presence</p>
-               <p className="text-white">Mumbai, India // Remote</p>
-            </li>
-          </ul>
+          <div className="flex gap-10">
+            {[Twitter, Linkedin, Github].map((Icon, i) => (
+              <a key={i} href="#" className={`opacity-20 hover:opacity-100 transition-all hover:scale-110 ${theme === 'light' ? 'text-black' : 'text-white'}`}>
+                <Icon size={18} strokeWidth={1.5} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
-
-      <div className="border-t border-white/5 mt-24 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
-        <div className="flex items-center gap-4">
-           <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-           <p className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em]">Status: Operational // All Engines Go</p>
-        </div>
-        
-        <p className="text-[9px] font-black text-white/20 uppercase tracking-[0.4em]">© 2024 Devtoon Technologies. Engineered for absolute impact.</p>
-        
-        <div className="flex gap-8">
-          {["Twitter", "LinkedIn", "GitHub"].map((social) => (
-            <span key={social} className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em] hover:text-primary cursor-pointer transition-colors">
-              {social}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
-  </footer>
-);
-
+    </footer>
+  );
+};

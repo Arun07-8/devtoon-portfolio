@@ -33,16 +33,10 @@ export default function About() {
               <h1 className="text-fluid-h1 font-black text-foreground leading-[0.8] tracking-tighter uppercase mb-12">
                 BUILT ON <br /> <span className="text-muted-foreground">PRECISION.</span>
               </h1>
-              <div className="space-y-8 text-fluid-body text-muted-foreground font-medium leading-relaxed max-w-2xl italic">
-                <p>
-                  Devtoon Technologies was founded on a singular technical mandate: digital products should be as powerful as they are beautiful.
-                </p>
-                <p>
-                  We are a boutique engineering agency specialized in high-performance digital environments. We don't just build software; we engineer competitive advantage for global brands.
-                </p>
+              <div className="mt-20">
                 <Link
                   href="/contact"
-                  className="btn-clay btn-clay-primary mt-12 w-full sm:w-auto text-xs"
+                  className="btn-clay btn-clay-primary w-full sm:w-auto text-xs"
                 >
                   START THE ENGINE <ArrowRight size={18} className="ml-3" />
                 </Link>
@@ -55,21 +49,28 @@ export default function About() {
               transition={{ duration: 1, delay: 0.2, ease: "circOut" }}
               className="w-full"
             >
-              <div className="clay-industrial p-12 md:p-16 lg:p-24 border-primary/10 relative overflow-hidden bg-foreground text-background">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/10 to-transparent pointer-events-none" />
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-primary rounded-2xl flex items-center justify-center mb-12 shadow-2xl">
-                  <span className="text-3xl font-black text-white">D</span>
+              <div className="clay-industrial p-12 md:p-16 lg:p-20 border-border bg-card relative overflow-hidden h-full flex flex-col justify-center">
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
+                
+                {/* Brand Row */}
+                <div className="flex items-center gap-6 mb-12">
+                   <div className="relative w-16 h-16">
+                      <img 
+                        src="/logo/Bold_Sans-Serif_Logo_with_Minimalist_Icon__2_-removebg-preview.png" 
+                        alt="Devtoon Logo" 
+                        className="w-full h-full object-contain"
+                      />
+                   </div>
+                   <h3 className="text-3xl font-black text-foreground tracking-tighter uppercase italic text-wrap">Devtoon <span className="text-primary italic">Technologies</span></h3>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase mb-2">Devtoon</h3>
-                <p className="text-white/40 font-black uppercase text-[10px] tracking-[0.3em]">Est. 2022 · Global Agency</p>
 
-                <div className="grid grid-cols-2 gap-8 mt-16">
-                   {[["50+", "Projects"], ["98%", "Retention"]].map(([num, label]) => (
-                    <div key={label} className="border-t border-white/10 pt-6">
-                      <p className="font-black text-3xl md:text-4xl text-white tracking-tighter mb-1 uppercase">{num}</p>
-                      <p className="text-[9px] font-black text-primary uppercase tracking-widest">{label}</p>
-                    </div>
-                  ))}
+                <h3 className="text-[10px] font-black tracking-[0.5em] text-primary uppercase mb-10">Strategic // Intelligence</h3>
+                <p className="text-xl md:text-2xl font-black text-foreground uppercase tracking-tighter leading-tight italic mb-8">
+                  "WE BELIEVE EVERY ENTERPRISE DESERVES A DIGITAL FOOTPRINT THAT IS AS HIGH-PERFORMING AS ITS PHYSICAL LEADERSHIP."
+                </p>
+                <div className="space-y-6 text-muted-foreground font-medium italic opacity-80 border-t border-border pt-10">
+                   <p>Our mission is to bridge the technical gap between vision and execution. We architect systems that maintain absolute stability under extreme load.</p>
+                   <p>Through surgical precision in code and high-stakes UI logic, we transform technology into your primary market lever.</p>
                 </div>
               </div>
             </motion.div>
@@ -107,34 +108,105 @@ export default function About() {
         </div>
       </section>
 
-      {/* Vision Statement */}
-      <section className="section-padding relative overflow-hidden bg-foreground text-background w-full">
+
+      {/* Strategic Roadmap - Technical Sector */}
+      <section className="section-padding bg-[#02040A] text-white w-full overflow-hidden border-t border-white/5">
         <div className="container-custom">
-          <div className="max-w-6xl mx-auto text-center relative z-10 w-full">
+          <div className="mb-24 flex flex-col md:flex-row justify-between items-end gap-16">
+            <div className="max-w-2xl">
+              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-8 block font-mono">The Execution // 03</span>
+              <h2 className="text-fluid-h2 font-black tracking-tighter uppercase leading-none italic text-white">
+                MISSION <br /> <span className="text-white/30 italic">ROADMAP.</span>
+              </h2>
+            </div>
+            <p className="text-lg md:text-xl font-medium text-white/40 max-w-sm italic mb-4">
+              "Every peak is achieved through a rigorous, proven methodology. We don't guess; we engineer outcomes."
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12 relative">
+             {[
+               { step: "01", title: "Signal Audit", desc: "Exposing technical debt and identifying high-impact leverage points." },
+               { step: "02", title: "Blueprint", desc: "Rigorous logic documentation and multi-tenant system flow design." },
+               { step: "03", title: "Sprint Sync", desc: "High-stakes development with extreme frequency performance audits." },
+               { step: "04", title: "Scale Up", desc: "Continuous technical evolution and production-ready server scaling." }
+             ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="clay-industrial p-12 bg-[#0A1221] border-white/5 hover:border-primary/20 transition-all duration-700 h-full flex flex-col"
+                >
+                  <span className="text-5xl font-black text-primary/10 mb-10 block font-mono italic tracking-tighter">{item.step}</span>
+                  <h4 className="text-xl md:text-2xl font-black uppercase tracking-tighter mb-6 italic text-white">{item.title}</h4>
+                  <p className="text-sm md:text-base font-medium text-white/40 leading-relaxed italic flex-grow">"{item.desc}"</p>
+                  
+                  <div className="mt-10 h-1 w-full bg-white/[0.02] relative overflow-hidden rounded-full">
+                     <motion.div 
+                       initial={{ x: "-100%" }}
+                       whileInView={{ x: "0%" }}
+                       viewport={{ once: true }}
+                       transition={{ duration: 1.5, delay: i * 0.2 + 0.5 }}
+                       className="absolute inset-0 bg-primary/40"
+                     />
+                  </div>
+                </motion.div>
+             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Vision Statement */}
+      <section className="section-padding relative overflow-hidden bg-secondary text-foreground w-full">
+        <div className="container-custom">
+          <div className="max-w-6xl mx-auto text-center relative z-10 w-full mb-32">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
               <h2 className="text-fluid-h2 font-black tracking-tighter leading-[0.8] uppercase mb-16">
-                ARCHITECTING <br /> <span className="text-primary">THE FUTURE.</span>
+                ARCHITECTING <br /> <span className="text-primary italic">THE FUTURE.</span>
               </h2>
-              <p className="text-fluid-body text-white/60 font-medium leading-relaxed italic max-w-4xl mx-auto">
+              <p className="text-fluid-body text-foreground/60 font-medium leading-relaxed italic max-w-4xl mx-auto">
                 "We believe every enterprise deserves a digital footprint that is as high-performing as its physical leadership. Our mission is to bridge that technical gap."
               </p>
-              
-              <div className="mt-20 flex justify-center">
-                 <Link href="/contact" className="btn-clay bg-background text-foreground w-full sm:w-auto px-16 md:px-20 py-8 text-sm">
-                    LET'S TALK BUSINESS
-                 </Link>
-              </div>
             </motion.div>
           </div>
-          
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[50rem] font-black text-white/5 select-none pointer-events-none uppercase leading-none">
-             DT
+
+          {/* New More Options Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-32">
+             {[
+               { title: "Absolute Scale", desc: "Building systems that don't just grow, but evolve with your enterprise needs." },
+               { title: "Surgical Code", desc: "Zero bloat, mission-critical engineering for maximum technical leverage." },
+               { title: "Logic First", desc: "Design driven by conversion psychology and technical architecture." }
+             ].map((item, i) => (
+               <motion.div
+                 key={i}
+                 initial={{ opacity: 0, scale: 0.95 }}
+                 whileInView={{ opacity: 1, scale: 1 }}
+                 viewport={{ once: true }}
+                 transition={{ delay: i * 0.1 }}
+                 className="p-10 border border-foreground/5 bg-background/50 rounded-3xl"
+               >
+                 <h4 className="text-xl font-black uppercase tracking-tighter mb-4 italic">{item.title}</h4>
+                 <p className="text-sm font-medium text-foreground/60 leading-relaxed italic">"{item.desc}"</p>
+               </motion.div>
+             ))}
+          </div>
+
+          <div className="flex justify-center">
+            <Link href="/contact" className="btn-clay btn-clay-primary w-full sm:w-auto px-16 md:px-20 py-8 text-xs">
+              LET'S TALK BUSINESS
+            </Link>
           </div>
         </div>
+
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[50rem] font-black text-white/5 select-none pointer-events-none uppercase leading-none">
+            DT
+          </div>
       </section>
     </main>
   );
