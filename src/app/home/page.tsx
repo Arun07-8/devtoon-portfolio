@@ -52,10 +52,10 @@ export default function Home() {
   return (
     <main className="w-full bg-background selection:bg-primary/30">
       {/* Hero Section - Solid Render No Blink */}
-      <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center pt-40 pb-20 overflow-hidden px-6 lg:px-0">
+      <section id="hero" className="relative min-h-[90vh] flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden px-5 sm:px-10 lg:px-0">
         {/* Ambient Glows */}
-        <div className="radial-glow top-0 left-1/4" />
-        <div className="radial-glow bottom-0 right-1/4 opacity-40" />
+        <div className="radial-glow top-0 left-1/4 opacity-30" />
+        <div className="radial-glow bottom-0 right-1/4 opacity-20" />
 
         <div className="container-custom relative z-10 text-center">
           <motion.div
@@ -70,7 +70,7 @@ export default function Home() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
                 </span>
-                <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-white/50 font-mono">
+                <span className="text-[9px] md:text-xs font-black uppercase tracking-[0.4em] text-white/50 font-mono">
                   Precision Systems Agency // Devtoon
                 </span>
               </span>
@@ -91,11 +91,11 @@ export default function Home() {
               "Generic solutions are for generic problems. We architect systems that dominate their specific technical niche through performance and technical excellence."
             </motion.p>
 
-            <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-6 lg:gap-10">
-              <a href="/contact" className="btn-clay btn-clay-primary px-12 md:px-16 py-8 h-20 md:h-24 flex items-center justify-center text-xs shadow-glow shadow-primary/20">
-                INITIALIZE PROJECT <ArrowUpRight size={18} className="ml-4" />
+            <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-10 w-full xs:w-auto">
+              <a href="/contact" className="btn-clay btn-clay-primary px-8 xs:px-10 md:px-16 py-5 xs:py-6 md:py-8 h-14 xs:h-16 md:h-24 w-full xs:w-auto flex items-center justify-center text-[10px] sm:text-xs shadow-glow shadow-primary/20">
+                INITIALIZE PROJECT <ArrowUpRight size={18} className="ml-2 xs:ml-4" />
               </a>
-              <a href="/projects" className="btn-clay btn-clay-secondary px-12 md:px-16 py-8 h-20 md:h-24 flex items-center justify-center text-xs text-white border-white/10 font-black uppercase tracking-[0.3em]">
+              <a href="/projects" className="btn-clay btn-clay-secondary px-8 xs:px-10 md:px-16 py-5 xs:py-6 md:py-8 h-14 xs:h-16 md:h-24 w-full xs:w-auto flex items-center justify-center text-[10px] sm:text-xs text-white border-white/10 font-black uppercase tracking-[0.3em]">
                 THE ARCHIVE
               </a>
             </motion.div>
@@ -103,8 +103,8 @@ export default function Home() {
         </div>
 
         {/* Floating Brand Mark */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 hidden lg:block opacity-5 pointer-events-none">
-          <div className="text-[35rem] font-black text-white select-none italic tracking-tighter uppercase">DT</div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 hidden xl:block opacity-5 pointer-events-none">
+          <div className="text-[40vw] font-black text-white select-none italic tracking-tighter uppercase whitespace-nowrap">DT</div>
         </div>
       </section>
 
@@ -113,7 +113,7 @@ export default function Home() {
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-32 md:mb-48 gap-16">
             <div className="max-w-4xl">
-              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-10 block font-mono">Engineering // Subsystems</span>
+              <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-6 sm:mb-10 block font-mono">Engineering // Subsystems</span>
               <h2 className="text-fluid-h2 leading-[0.85] tracking-tighter uppercase italic text-white text-wrap">
                 TECHNICAL <br />
                 <span className="text-white/40 italic">LEVERAGE.</span>
@@ -128,7 +128,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="clay-industrial p-12 md:p-16 flex flex-col h-full bg-card border-white/5 hover:border-primary/20 transition-all duration-700 group"
+                className="clay-industrial p-6 xs:p-8 sm:p-12 md:p-16 flex flex-col h-full bg-card border-white/5 hover:border-primary/20 transition-all duration-700 group"
               >
                 <div className="flex items-start justify-between mb-16">
                   <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-white/[0.03] border border-white/10 flex items-center justify-center transition-all duration-700 group-hover:bg-primary group-hover:text-white">
@@ -137,8 +137,8 @@ export default function Home() {
                   <span className="text-[10px] font-black text-white/10 tracking-[0.4em] font-mono">0{i + 1} // ARCH</span>
                 </div>
 
-                <h3 className="text-3xl md:text-4xl font-black mb-8 uppercase tracking-tighter italic leading-none text-white text-wrap">{service.title}</h3>
-                <p className="text-white/40 leading-relaxed mb-12 text-lg italic font-medium flex-grow">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-6 sm:mb-8 uppercase tracking-tighter italic leading-none text-white text-wrap">{service.title}</h3>
+                <p className="text-white/40 leading-relaxed mb-8 sm:mb-12 text-base sm:text-lg italic font-medium flex-grow">
                   "{service.description}"
                 </p>
 
@@ -168,7 +168,7 @@ export default function Home() {
                 <span className="text-primary italic">MASTERY.</span>
               </h2>
             </div>
-            <a href="/projects" className="btn-clay btn-clay-secondary rounded-2xl h-20 px-12 text-[10px] text-white border-white/10 font-black uppercase tracking-[0.3em] flex items-center justify-center shadow-xl">
+            <a href="/projects" className="btn-clay btn-clay-secondary rounded-2xl h-16 sm:h-20 px-8 sm:px-12 text-[9px] sm:text-[10px] text-white border-white/10 font-black uppercase tracking-[0.3em] flex items-center justify-center shadow-xl">
               EXPLORE FULL ARCHIVE
             </a>
           </div>
@@ -198,8 +198,8 @@ export default function Home() {
               >
                 <div className={`order-2 ${i % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
                   <span className="text-[10px] font-black text-primary tracking-[0.4em] mb-6 block font-mono">{project.category}</span>
-                  <h3 className="text-4xl md:text-7xl xl:text-8xl font-black mb-10 uppercase leading-[0.8] tracking-tighter italic text-white text-wrap group-hover:text-primary transition-colors duration-700">{project.name}</h3>
-                  <p className="text-white/40 text-xl md:text-2xl leading-relaxed mb-12 italic font-medium">
+                  <h3 className="text-3xl md:text-6xl xl:text-8xl font-black mb-8 sm:mb-10 uppercase leading-[0.85] tracking-tighter italic text-white text-wrap group-hover:text-primary transition-colors duration-700">{project.name}</h3>
+                  <p className="text-white/40 text-lg md:text-2xl leading-relaxed mb-8 sm:mb-12 italic font-medium">
                     "{project.desc}"
                   </p>
                   <div className="flex flex-wrap gap-4 mb-16">
@@ -207,7 +207,7 @@ export default function Home() {
                       <span key={tag} className="px-6 py-3 bg-white/[0.03] border border-white/10 rounded-full text-[10px] font-black tracking-widest text-white/50 font-mono shadow-inner">{tag}</span>
                     ))}
                   </div>
-                  <a href="/projects" className="inline-flex items-center gap-6 text-[10px] font-black uppercase tracking-[0.4em] group/link text-primary transition-all hover:gap-10">
+                  <a href="/projects" className="inline-flex items-center gap-4 sm:gap-6 text-[9px] sm:text-[10px] font-black uppercase tracking-[0.4em] group/link text-primary transition-all hover:gap-8">
                     View Case Narrative <ArrowRight size={18} className="transition-transform group-hover/link:translate-x-3" />
                   </a>
                 </div>
@@ -234,7 +234,7 @@ export default function Home() {
             initial={{ scale: 0.98, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            className="p-12 md:p-32 lg:p-48 text-center bg-card border border-white/5 relative overflow-hidden w-full rounded-[4rem] shadow-glow-blue"
+            className="p-10 sm:p-20 md:p-32 lg:p-40 text-center bg-card border border-white/5 relative overflow-hidden w-full rounded-[2.5rem] sm:rounded-[4rem] shadow-glow-blue"
           >
             <div className="radial-glow top-0 left-1/2 -translate-x-1/2 opacity-20" />
             <div className="relative z-10">
@@ -242,17 +242,17 @@ export default function Home() {
                 READY TO <br />
                 <span className="text-primary italic">TRANSCEND?</span>
               </h2>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 lg:gap-10">
-                <a href="/contact" className="btn-clay btn-clay-primary w-full sm:w-auto h-24 px-16 md:px-20 text-xs shadow-2xl flex items-center justify-center">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 xs:gap-6 lg:gap-10">
+                <a href="/contact" className="btn-clay btn-clay-primary w-full sm:w-auto h-16 xs:h-20 md:h-24 px-10 xs:px-16 md:px-20 text-[10px] xs:text-xs shadow-2xl flex items-center justify-center">
                   START THE ENGINE
                 </a>
-                <a href="/services" className="btn-clay btn-clay-secondary w-full sm:w-auto h-24 px-16 md:px-20 text-xs shadow-2xl text-white border-white/5 flex items-center justify-center uppercase font-black tracking-[0.2em]">
+                <a href="/services" className="btn-clay btn-clay-secondary w-full sm:w-auto h-16 xs:h-20 md:h-24 px-10 xs:px-16 md:px-20 text-[10px] xs:text-xs shadow-2xl text-white border-white/5 flex items-center justify-center uppercase font-black tracking-[0.2em]">
                   CAPABILITIES
                 </a>
               </div>
             </div>
 
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[45rem] font-black text-white/5 select-none pointer-events-none uppercase leading-none italic">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-black text-white/5 select-none pointer-events-none uppercase leading-none italic whitespace-nowrap">
                EXIT
             </div>
           </motion.div>

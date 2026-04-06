@@ -30,7 +30,7 @@ export const FAQSection = () => {
     <section id="faq" className="section-padding bg-background w-full overflow-hidden">
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-32">
+          <div className="text-center mb-16 sm:mb-24 md:mb-32">
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -62,13 +62,13 @@ export const FAQSection = () => {
               >
                 <button
                   onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                  className="w-full p-10 md:p-12 flex items-center justify-between text-left transition-colors"
+                  className="w-full p-6 xs:p-8 sm:p-10 md:p-12 flex items-center justify-between text-left transition-colors"
                 >
-                  <span className="text-xl md:text-3xl font-black text-foreground italic tracking-tighter uppercase">
+                  <span className="text-lg sm:text-2xl md:text-3xl font-black text-foreground italic tracking-tighter uppercase pr-4">
                     {faq.question}
                   </span>
-                  <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-primary transition-all duration-500 bg-foreground/[0.02]">
-                    {activeIndex === index ? <Minus size={20} /> : <Plus size={20} />}
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-border flex items-center justify-center text-primary transition-all duration-500 bg-foreground/[0.02] flex-shrink-0">
+                    {activeIndex === index ? <Minus size={18} /> : <Plus size={18} />}
                   </div>
                 </button>
                 <AnimatePresence>
@@ -79,7 +79,7 @@ export const FAQSection = () => {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                     >
-                      <div className="px-10 pb-12 md:px-12 md:pb-16 text-muted-foreground text-fluid-body leading-relaxed font-medium italic opacity-80 border-t border-border pt-8">
+                      <div className="px-6 pb-8 xs:px-8 xs:pb-10 sm:px-10 sm:pb-12 md:px-12 md:pb-16 text-muted-foreground text-fluid-body leading-relaxed font-medium italic opacity-80 border-t border-border pt-6 sm:pt-8">
                         "{faq.answer}"
                       </div>
                     </motion.div>
