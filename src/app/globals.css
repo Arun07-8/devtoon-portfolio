@@ -100,11 +100,11 @@
 
 @layer components {
   .section-padding {
-    @apply py-24 sm:py-32 md:py-40 lg:py-48;
+    @apply py-16 sm:py-24 md:py-32 lg:py-40;
   }
 
   .container-custom {
-    @apply w-full max-w-[1440px] mx-auto px-6 sm:px-10 md:px-16 lg:px-24;
+    @apply w-full max-w-[1440px] mx-auto px-4 xs:px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20;
   }
 
   .glass-frosted {
@@ -116,11 +116,11 @@
   }
 
   .clay-industrial:hover {
-    @apply -translate-y-3 border-primary/20 shadow-blue-500/10;
+    @apply -translate-y-2 border-primary/20 shadow-blue-500/10;
   }
 
   .btn-clay {
-    @apply inline-flex items-center justify-center px-10 py-5 rounded-full font-black text-xs uppercase tracking-[0.3em] transition-all duration-500 active:scale-95 select-none;
+    @apply inline-flex items-center justify-center px-6 py-4 sm:px-8 sm:py-5 md:px-10 md:py-5 rounded-full font-black text-[9px] xs:text-[10px] sm:text-xs uppercase tracking-[0.2em] xs:tracking-[0.3em] transition-all duration-500 active:scale-95 select-none;
     box-shadow: 0 10px 40px -10px rgba(0, 119, 255, 0.4);
   }
 
@@ -137,27 +137,29 @@
   }
 
   .nav-link {
-    @apply text-[11px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-white transition-all duration-500;
+    @apply text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-white transition-all duration-500;
   }
 
   .magnetic-pill {
-    @apply px-6 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md transition-all duration-500 hover:bg-white/10;
+    @apply px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md transition-all duration-500 hover:bg-white/10;
   }
 }
 
 @layer utilities {
   .text-fluid-h1 {
-    font-size: clamp(3.5rem, 12vw, 9rem);
+    font-size: clamp(2.25rem, 9vw, 8rem);
     font-weight: 900;
+    line-height: 0.9;
   }
 
   .text-fluid-h2 {
-    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-size: clamp(1.75rem, 6vw, 5rem);
     font-weight: 900;
+    line-height: 0.9;
   }
 
   .text-fluid-body {
-    font-size: clamp(1rem, 1.2vw, 1.25rem);
+    font-size: clamp(0.875rem, 1.1vw, 1.15rem);
     font-weight: 500;
   }
 }

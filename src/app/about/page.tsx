@@ -33,12 +33,12 @@ export default function About() {
               <h1 className="text-fluid-h1 font-black text-foreground leading-[0.8] tracking-tighter uppercase mb-12">
                 BUILT ON <br /> <span className="text-muted-foreground">PRECISION.</span>
               </h1>
-              <div className="mt-20">
+              <div className="mt-12 sm:mt-20">
                 <Link
                   href="/contact"
-                  className="btn-clay btn-clay-primary w-full sm:w-auto text-xs"
+                  className="btn-clay btn-clay-primary w-full sm:w-auto py-5 xs:py-6 sm:py-8 text-[10px] xs:text-xs h-14 xs:h-16 sm:h-20 flex items-center justify-center italic"
                 >
-                  START THE ENGINE <ArrowRight size={18} className="ml-3" />
+                  START THE ENGINE <ArrowRight size={18} className="ml-2 xs:ml-3" />
                 </Link>
               </div>
             </motion.div>
@@ -49,26 +49,26 @@ export default function About() {
               transition={{ duration: 1, delay: 0.2, ease: "circOut" }}
               className="w-full"
             >
-              <div className="clay-industrial p-12 md:p-16 lg:p-20 border-border bg-card relative overflow-hidden h-full flex flex-col justify-center">
+              <div className="clay-industrial p-6 xs:p-8 sm:p-12 md:p-16 lg:p-20 border-border bg-card relative overflow-hidden h-full flex flex-col justify-center rounded-[2rem] sm:rounded-[3rem]">
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
                 
                 {/* Brand Row */}
-                <div className="flex items-center gap-6 mb-12">
-                   <div className="relative w-16 h-16">
+                <div className="flex items-center gap-4 sm:gap-6 mb-8 sm:mb-12">
+                   <div className="relative w-12 h-12 sm:w-16 sm:h-16">
                       <img 
                         src="/logo/Bold_Sans-Serif_Logo_with_Minimalist_Icon__2_-removebg-preview.png" 
                         alt="Devtoon Logo" 
                         className="w-full h-full object-contain"
                       />
                    </div>
-                   <h3 className="text-3xl font-black text-foreground tracking-tighter uppercase italic text-wrap">Devtoon <span className="text-primary italic">Technologies</span></h3>
+                   <h3 className="text-2xl sm:text-3xl font-black text-foreground tracking-tighter uppercase italic text-wrap">Devtoon <span className="text-primary italic">Technologies</span></h3>
                 </div>
 
-                <h3 className="text-[10px] font-black tracking-[0.5em] text-primary uppercase mb-10">Strategic // Intelligence</h3>
-                <p className="text-xl md:text-2xl font-black text-foreground uppercase tracking-tighter leading-tight italic mb-8">
+                <h3 className="text-[9px] sm:text-[10px] font-black tracking-[0.5em] text-primary uppercase mb-6 sm:mb-10">Strategic // Intelligence</h3>
+                <p className="text-lg sm:text-xl md:text-2xl font-black text-foreground uppercase tracking-tighter leading-tight italic mb-6 sm:mb-8">
                   "WE BELIEVE EVERY ENTERPRISE DESERVES A DIGITAL FOOTPRINT THAT IS AS HIGH-PERFORMING AS ITS PHYSICAL LEADERSHIP."
                 </p>
-                <div className="space-y-6 text-muted-foreground font-medium italic opacity-80 border-t border-border pt-10">
+                <div className="space-y-4 sm:space-y-6 text-muted-foreground font-medium italic opacity-80 border-t border-border pt-8 sm:pt-10 text-sm sm:text-base">
                    <p>Our mission is to bridge the technical gap between vision and execution. We architect systems that maintain absolute stability under extreme load.</p>
                    <p>Through surgical precision in code and high-stakes UI logic, we transform technology into your primary market lever.</p>
                 </div>
@@ -95,13 +95,13 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="clay-industrial p-10 hover:border-primary/20 group h-full flex flex-col"
+                className="clay-industrial p-6 xs:p-8 sm:p-10 hover:border-primary/20 group h-full flex flex-col rounded-[2rem]"
               >
-                <div className="w-14 h-14 md:w-16 md:h-16 bg-secondary flex items-center justify-center rounded-2xl mb-10 transition-all duration-500 group-hover:bg-primary group-hover:text-white group-hover:rotate-6">
-                  <skill.icon size={28} strokeWidth={1.5} />
+                <div className="w-12 h-12 xs:w-14 xs:h-14 sm:w-16 sm:h-16 bg-secondary flex items-center justify-center rounded-2xl mb-6 sm:mb-10 transition-all duration-500 group-hover:bg-primary group-hover:text-white group-hover:rotate-6">
+                  <skill.icon size={24} className="sm:w-[28px] sm:h-[28px]" strokeWidth={1.5} />
                 </div>
-                <h4 className="text-xl md:text-2xl font-black text-foreground mb-6 leading-tight tracking-tight uppercase">{skill.label}</h4>
-                <p className="text-muted-foreground font-medium leading-relaxed italic text-base md:text-lg flex-grow">"{skill.desc}"</p>
+                <h4 className="text-lg sm:text-2xl font-black text-foreground mb-4 sm:mb-6 leading-tight tracking-tight uppercase italic">{skill.label}</h4>
+                <p className="text-muted-foreground font-medium leading-relaxed italic text-sm sm:text-lg flex-grow">"{skill.desc}"</p>
               </motion.div>
             ))}
           </div>
@@ -137,11 +137,11 @@ export default function About() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.15 }}
-                  className="clay-industrial p-12 bg-[#0A1221] border-white/5 hover:border-primary/20 transition-all duration-700 h-full flex flex-col"
+                  className="clay-industrial p-6 xs:p-8 sm:p-12 bg-[#0A1221] border-white/5 hover:border-primary/20 transition-all duration-700 h-full flex flex-col rounded-[2rem]"
                 >
-                  <span className="text-5xl font-black text-primary/10 mb-10 block font-mono italic tracking-tighter">{item.step}</span>
-                  <h4 className="text-xl md:text-2xl font-black uppercase tracking-tighter mb-6 italic text-white">{item.title}</h4>
-                  <p className="text-sm md:text-base font-medium text-white/40 leading-relaxed italic flex-grow">"{item.desc}"</p>
+                  <span className="text-3xl sm:text-5xl font-black text-primary/10 mb-6 sm:mb-10 block font-mono italic tracking-tighter">{item.step}</span>
+                  <h4 className="text-lg sm:text-2xl font-black uppercase tracking-tighter mb-4 sm:mb-6 italic text-white">{item.title}</h4>
+                  <p className="text-xs sm:text-base font-medium text-white/40 leading-relaxed italic flex-grow">"{item.desc}"</p>
                   
                   <div className="mt-10 h-1 w-full bg-white/[0.02] relative overflow-hidden rounded-full">
                      <motion.div 
@@ -198,13 +198,13 @@ export default function About() {
           </div>
 
           <div className="flex justify-center">
-            <Link href="/contact" className="btn-clay btn-clay-primary w-full sm:w-auto px-16 md:px-20 py-8 text-xs">
+            <Link href="/contact" className="btn-clay btn-clay-primary w-full sm:w-auto px-10 xs:px-16 sm:px-20 py-6 sm:py-8 text-xs h-16 sm:h-20 flex items-center justify-center">
               LET'S TALK BUSINESS
             </Link>
           </div>
         </div>
 
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[50rem] font-black text-white/5 select-none pointer-events-none uppercase leading-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[45vw] font-black text-white/5 select-none pointer-events-none uppercase leading-none whitespace-nowrap">
             DT
           </div>
       </section>

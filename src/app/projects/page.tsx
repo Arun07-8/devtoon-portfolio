@@ -78,9 +78,9 @@ export default function Projects() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "circOut" }}
-                className="text-fluid-h1 font-black text-foreground tracking-tighter leading-[0.85] uppercase italic text-wrap"
+                className="text-fluid-h1 font-black text-foreground tracking-tighter leading-[0.9] uppercase italic text-wrap"
               >
-                PROVED <br />
+                PROVED <br className="xs:hidden" />
                 <span className="text-muted-foreground italic">MASTERY.</span>
               </motion.h1>
             </div>
@@ -101,7 +101,7 @@ export default function Projects() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                  className="clay-industrial p-10 md:p-12 lg:p-16 flex flex-col h-full group border-border bg-card hover:border-primary/20 transition-all duration-700"
+                  className="clay-industrial p-6 xs:p-8 sm:p-12 md:p-16 flex flex-col h-full group border-border bg-card hover:border-primary/20 transition-all duration-700"
                 >
                   <div className="flex items-start justify-between mb-12">
                     <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-secondary flex items-center justify-center transition-all duration-700 group-hover:bg-primary group-hover:text-white group-hover:rotate-12 border border-border shadow-2xl">
@@ -141,7 +141,7 @@ export default function Projects() {
       {/* Engineering Philosophy CTA */}
       <section className="section-padding pt-0 w-full overflow-hidden">
         <div className="container-custom">
-          <div className="clay-industrial p-12 md:p-24 lg:p-32 bg-card border-border relative overflow-hidden w-full rounded-[4rem] shadow-glow-blue">
+          <div className="clay-industrial p-10 sm:p-20 md:p-24 lg:p-32 bg-card border-border relative overflow-hidden w-full rounded-[2.5rem] sm:rounded-[4rem] shadow-glow-blue">
             <div className="radial-glow top-0 left-1/2 -translate-x-1/2 opacity-20" />
             <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
               <div>
@@ -151,13 +151,13 @@ export default function Projects() {
                 </p>
               </div>
               <div className="flex justify-start lg:justify-end">
-                <Link href="/contact" className="btn-clay btn-clay-primary w-full sm:w-auto px-16 md:px-20 py-8 text-xs h-24 flex items-center justify-center shadow-xl">
+                <Link href="/contact" className="btn-clay btn-clay-primary w-full sm:w-auto px-10 xs:px-16 md:px-20 py-6 xs:py-8 text-[10px] xs:text-xs h-16 xs:h-20 md:h-24 flex items-center justify-center shadow-xl">
                   START A PROJECT
                 </Link>
               </div>
             </div>
 
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[45rem] font-black text-foreground/[0.03] select-none pointer-events-none uppercase leading-none italic">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-black text-foreground/[0.03] select-none pointer-events-none uppercase leading-none italic whitespace-nowrap">
               ENGINE
             </div>
           </div>

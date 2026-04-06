@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      screens: {
+        "xs": "480px",
+      },
       fontFamily: {
         display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
         body: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
