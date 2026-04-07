@@ -54,7 +54,7 @@ export const Footer = () => {
               <li><Link href="/services" className="hover:text-primary transition-all">AI Layers</Link></li>
             </ul>
           </div>
-
+      
           {/* Links Column 2 */}
           <div className="md:col-span-4 lg:col-span-2">
             <h5 className="font-black text-primary mb-10 uppercase text-[10px] tracking-[0.4em] font-mono">Narrative</h5>
