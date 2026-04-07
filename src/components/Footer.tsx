@@ -16,10 +16,7 @@ export const Footer = () => {
   if (!mounted) return null;
 
   return (
-    <footer
-      className={`pt-32 pb-16 border-t transition-all duration-700 ${theme === 'light' ? 'bg-[#FFFFFF] text-[#000000] border-black/5' : 'bg-[#02040A] text-white border-white/5'
-        }`}
-    >
+    <footer className="pt-32 pb-16 border-t transition-all duration-700 bg-white text-black dark:bg-[#02040A] dark:text-white border-black/5 dark:border-white/5">
       <div className="container-custom">
         <div className="grid md:grid-cols-12 gap-12 sm:gap-16 md:gap-20 lg:gap-32">
           {/* Brand/Summary */}
